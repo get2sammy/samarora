@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This CSP allows the page to connect to Google's API servers -->
-    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://*.googleapis.com;">
     <title>Sam Arora | AI & DevSecOps Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -290,7 +288,6 @@
                         format: 'a4'
                     });
                     const pdfWidth = pdf.internal.pageSize.getWidth();
-                    const pdfHeight = pdf.internal.pageSize.getHeight();
                     const canvasWidth = canvas.width;
                     const canvasHeight = canvas.height;
                     const ratio = canvasHeight / canvasWidth;
@@ -380,7 +377,6 @@
                 - From private Hugging Face Space 'medical-llama-finetune': Includes notes on a project fine-tuning a Llama model on a private medical dataset. Key learning was the importance of data decontamination to prevent memorization of sensitive information.
             `;
             
-            // --- Live API Call Implementation ---
             const sendMessage = async (message) => {
                 const userInput = message || chatInput.value.trim();
                 if (!userInput) return;
@@ -397,41 +393,32 @@
                     appendMessage(responseText, 'ai');
                 } catch (error) {
                     document.querySelector('.thinking').parentElement.remove();
-                    appendMessage('Sorry, I encountered an error. Please check the browser console for details.', 'ai');
+                    appendMessage(error.message, 'ai');
                     console.error('Error fetching AI response:', error);
                 }
             };
 
             const getAiResponse = async (prompt) => {
-                // IMPORTANT: In your GitHub Actions workflow, you must replace
-                // the '{{GEMINI_API_KEY}}' placeholder below with your actual secret.
-                // Example step in YAML:
-                // - name: Replace API Key
-                //   run: sed -i 's/{{GEMINI_API_KEY}}/${{ secrets.GEMINI_API_KEY }}/g' index.html
-                const apiKey = "{{GEMINI_API_KEY}}"; 
+                // This is a placeholder for your secure backend proxy URL.
+                // You will get this URL after deploying the backend code from Part 2.
+                const proxyUrl = 'https://chatbot-backend-service-778752718405.europe-west1.run.app'; 
 
-                if (!apiKey || apiKey === "{{GEMINI_API_KEY}}") {
-                    throw new Error("API key placeholder not replaced. Please set up the GitHub Action secret.");
+                if (proxyUrl === 'https://chatbot-backend-service-778752718405.europe-west1.run.app') {
+                    throw new Error("Backend proxy URL not configured. Please deploy the backend function and update this URL.");
                 }
-
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                 
-                const payload = { contents: [{ parts: [{ text: prompt }] }] };
-                const headers = { 'Content-Type': 'application/json' };
+                const response = await fetch(proxyUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
 
-                const response = await fetch(apiUrl, { method: 'POST', headers, body: JSON.stringify(payload) });
                 if (!response.ok) {
-                    const errorBody = await response.text();
-                    console.error("API Error Response:", errorBody);
-                    throw new Error(`API request failed with status ${response.status}`);
+                    throw new Error("The chatbot is currently unavailable. Please try again later.");
                 }
-                const result = await response.json();
 
-                if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
-                    return result.candidates[0].content.parts[0].text;
-                }
-                
-                throw new Error("Invalid response structure from API.");
+                const result = await response.json();
+                return result.text;
             };
 
             const appendMessage = (text, type) => {
