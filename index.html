@@ -399,13 +399,7 @@
             };
 
             const getAiResponse = async (prompt) => {
-                // This is a placeholder for your secure backend proxy URL.
-                // You will get this URL after deploying the backend code from Part 2.
-                const proxyUrl = 'https://chatbot-backend-service-778752718405.europe-west1.run.app'; 
-
-                if (proxyUrl === 'https://chatbot-backend-service-778752718405.europe-west1.run.app') {
-                    throw new Error("Backend proxy URL not configured. Please deploy the backend function and update this URL.");
-                }
+                const proxyUrl = 'https://chatbot-backend-service-778752718405.europe-west1.run.app';
                 
                 const response = await fetch(proxyUrl, {
                     method: 'POST',
