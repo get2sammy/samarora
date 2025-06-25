@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This CSP allows the page to connect to Google's API servers -->
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://*.googleapis.com;">
     <title>Sam Arora | AI & DevSecOps Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -99,6 +101,14 @@
         @keyframes dotFlashing {
             0% { background-color: #A0522D; }
             50%, 100% { background-color: #d2b48c; }
+        }
+        .predefined-question {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .predefined-question:hover {
+            background-color: #A0522D;
+            color: white;
         }
     </style>
 </head>
@@ -226,13 +236,21 @@
                     <div id="chat-window" class="flex-grow overflow-y-auto p-4 space-y-4">
                         <div class="flex justify-start">
                             <div class="chat-bubble ai p-3 rounded-lg">
-                                Hello! I am an AI assistant trained exclusively on Sam Arora's professional background. Ask me about his experience, skills, or projects.
+                                Hello! I'm an AI assistant trained on Sam Arora's resume. Ask me anything about his experience, skills, or projects, or click a suggestion below.
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 border-t-2 border-gray-100 pt-4">
+                    <div class="pt-2">
+                        <p class="text-sm font-semibold text-gray-600 mb-2 px-4">Suggestions:</p>
+                        <div id="predefined-questions" class="flex flex-wrap gap-2 px-4 mb-4">
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What are his key achievements?</button>
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Summarize his experience with AI.</button>
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Which major companies has he worked with?</button>
+                        </div>
+                    </div>
+                    <div class="mt-2 border-t-2 border-gray-100 pt-4">
                         <div class="flex">
-                            <input type="text" id="chat-input" placeholder="e.g., 'What is his experience with AI?'" class="flex-grow border rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#A0522D]">
+                            <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-grow border rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#A0522D]">
                             <button id="chat-send" class="bg-[#A0522D] text-white font-bold p-3 rounded-r-lg hover:bg-opacity-90 transition">Send</button>
                         </div>
                     </div>
@@ -325,52 +343,95 @@
             const chatWindow = document.getElementById('chat-window');
             const chatInput = document.getElementById('chat-input');
             const sendButton = document.getElementById('chat-send');
+            const predefinedQuestionsContainer = document.getElementById('predefined-questions');
             
-            // --- Self-Contained Knowledge Base ---
-            const knowledgeBase = {
-                "default": "I can only answer questions based on Sam Arora's provided professional profile. Please ask about his experience, skills, or projects.",
-                "greeting": "Hello! I am an AI assistant trained on Sam Arora's professional background. How can I help you?",
-                "experience": "Sam Arora has over 20 years of experience as a hands-on technology leader, specializing in AI, DevSecOps, and cloud solutions. His recent roles include Director & Principal Consultant at Samokash Ltd, with direct client work for firms like Legal & General, Euroclear, Pret, and Chase.",
-                "ai": "Sam is proficient with Large Language Models like Llama 3.x, and platforms like Azure OpenAI and GCP Vertex AI (Gemini). He is skilled in fine-tuning, Retrieval-Augmented Generation (RAG), and building agentic workflows. A key project involved developing an internal AI system for an insurance client using a fine-tuned Llama model to analyze sensitive data.",
-                "cloud": "Sam is an expert in Azure, GCP, and AWS. He uses Terraform and Ansible for Infrastructure as Code and is highly skilled with Kubernetes (AKS, GKE). A notable project was leading the design of secure, multi-region cloud platforms.",
-                "devops": "His DevSecOps expertise includes building and securing CI/CD pipelines with tools like GitHub Actions and Jenkins. He uses Prisma Cloud for security and OPA (Open Policy Agent) for policy-as-code.",
-                "security": "Sam has deep knowledge of security and compliance frameworks like ISO27001, NIST, and SOC2. He pioneered a keyless authentication strategy for GCP to eliminate secrets management risks, a major security enhancement.",
-                "projects": "Key projects include: 1) A local AI model for insurance underwriting. 2) An 'AI Risk Guard' to prevent model hallucinations in finance. 3) A keyless, secretless authentication system for Google Cloud.",
-                "contact": "You can reach Sam Arora at sam.arora@samokash.com or 07706070809. You can also find him on LinkedIn, GitHub, and Hugging Face.",
-                "skills": "His skills include AI/ML (Llama 3.x, LangChain), Cloud (Azure, GCP, AWS, Kubernetes), DevSecOps (GitHub Actions, Terraform, Prisma Cloud), Security (NIST, SOC2, Keyless Auth), and programming (Python, React, Node.js).",
-                "achievements": "His key achievements include saving over £100k annually in cloud costs, accelerating application onboarding by 40%, and architecting secure, agentic AI applications for the finance and insurance industries."
-            };
-            
-            // --- Simulated AI Response (No API Call) ---
-            const getSimulatedAiResponse = (userInput) => {
-                const lowerInput = userInput.toLowerCase();
-                if (lowerInput.includes('hello') || lowerInput.includes('hi')) return knowledgeBase.greeting;
-                if (lowerInput.includes('experience') || lowerInput.includes('background') || lowerInput.includes('history')) return knowledgeBase.experience;
-                if (lowerInput.includes('ai') || lowerInput.includes('ml') || lowerInput.includes('llama') || lowerInput.includes('language model')) return knowledgeBase.ai;
-                if (lowerInput.includes('cloud') || lowerInput.includes('azure') || lowerInput.includes('gcp') || lowerInput.includes('aws')) return knowledgeBase.cloud;
-                if (lowerInput.includes('devops') || lowerInput.includes('cicd') || lowerInput.includes('devsecops')) return knowledgeBase.devops;
-                if (lowerInput.includes('security') || lowerInput.includes('compliance') || lowerInput.includes('nist')) return knowledgeBase.security;
-                if (lowerInput.includes('project') || lowerInput.includes('work')) return knowledgeBase.projects;
-                if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('phone')) return knowledgeBase.contact;
-                if (lowerInput.includes('skills') || lowerInput.includes('technical expertise')) return knowledgeBase.skills;
-                if (lowerInput.includes('achievements') || lowerInput.includes('what has he done')) return knowledgeBase.achievements;
-                return knowledgeBase.default;
-            };
+            const resumeContext = `
+                This is a professional profile for Sam Arora.
 
-            const sendMessage = () => {
-                const userInput = chatInput.value.trim();
+                **Core Identity:**
+                - Title: Principal AI/ML & DevSecOps Architect
+                - Experience: Over 20 years
+                - Summary: A hands-on technology leader specializing in AI, DevSecOps, and cloud solutions. He bridges the gap between high-level strategy and technical execution.
+
+                **Key Achievements (Quantifiable):**
+                - Saved over £100k annually by optimizing cloud infrastructure.
+                - Accelerated application onboarding by 40% with standardized platforms.
+                - Eliminated 100% of static secrets in CI/CD pipelines via keyless authentication.
+
+                **Technical Expertise Breakdown:**
+                - AI/ML: Proficient with Large Language Models like Llama 3.x, and platforms like Azure OpenAI and GCP Vertex AI (Gemini). Skilled in fine-tuning, RAG (Retrieval-Augmented Generation), and building agentic workflows.
+                - Cloud & Infrastructure: Expert in Azure, GCP, and AWS. Manages infrastructure as code using Terraform and Ansible. Expert in Kubernetes (AKS, GKE).
+                - DevSecOps & CI/CD: Builds and secures pipelines using GitHub Actions, Jenkins, and GitLab CI. Uses Prisma Cloud for security and OPA (Open Policy Agent) for policy-as-code.
+                - Security & Compliance Frameworks: Deep knowledge of ISO27001, NIST, SOC2, and GDPR. Implements secure SDLC and keyless authentication using OIDC.
+                - Programming: Python, React, Node.js, Flask, PowerShell.
+
+                **Recent Professional Engagements (Post-2022):**
+                - Current Role: Director & Principal Consultant at Samokash Ltd (since April 2023).
+                - Direct Client Work (as Principal Architect/Strategist): Legal & General (UK & America), Euroclear, Pret, and Chase. This work involves AI strategy, cloud architecture, and DevSecOps leadership.
+                - Previous Role: Senior DevOps Engineer at London Stock Exchange (until April 2023).
+
+                **Key Project Summaries:**
+                - For Insurance (Local AI Model): Developed an internal, air-gapped AI system using a fine-tuned Llama 3 model to analyze sensitive medical data for underwriting, improving accuracy.
+                - For Finance (AI Risk Guard): Built a safety system that acts as a firewall for LLM outputs to prevent hallucinations and bias.
+                - For Cloud Security (Keyless Auth): Deployed a secretless access solution for GCP using Workload Identity Federation, eliminating the need for static service account keys.
+
+                **Simulated Private Repository Insights:**
+                - From private GitHub repo 'agentic-finance-framework': Contains code for a Python-based framework using LangChain to create financial analysis agents. The README highlights a modular design for swapping different LLMs and vector databases.
+                - From private Hugging Face Space 'medical-llama-finetune': Includes notes on a project fine-tuning a Llama model on a private medical dataset. Key learning was the importance of data decontamination to prevent memorization of sensitive information.
+            `;
+            
+            // --- Live API Call Implementation ---
+            const sendMessage = async (message) => {
+                const userInput = message || chatInput.value.trim();
                 if (!userInput) return;
 
                 appendMessage(userInput, 'user');
                 chatInput.value = '';
                 appendMessage('', 'thinking');
 
-                // Simulate a slight delay for a more realistic feel
-                setTimeout(() => {
-                    const responseText = getSimulatedAiResponse(userInput);
+                const prompt = `You are an AI assistant for Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, you MUST respond with "I can only answer questions based on Sam Arora's provided professional profile." Be professional and concise.\n\n== CONTEXT ==\n${resumeContext}\n\n== USER QUESTION ==\n${userInput}`;
+                
+                try {
+                    const responseText = await getAiResponse(prompt);
                     document.querySelector('.thinking').parentElement.remove();
                     appendMessage(responseText, 'ai');
-                }, 1000);
+                } catch (error) {
+                    document.querySelector('.thinking').parentElement.remove();
+                    appendMessage('Sorry, I encountered an error. Please check the browser console for details.', 'ai');
+                    console.error('Error fetching AI response:', error);
+                }
+            };
+
+            const getAiResponse = async (prompt) => {
+                // IMPORTANT: In your GitHub Actions workflow, you must replace
+                // the '{{GEMINI_API_KEY}}' placeholder below with your actual secret.
+                // Example step in YAML:
+                // - name: Replace API Key
+                //   run: sed -i 's/{{GEMINI_API_KEY}}/${{ secrets.GEMINI_API_KEY }}/g' index.html
+                const apiKey = "{{GEMINI_API_KEY}}"; 
+
+                if (!apiKey || apiKey === "{{GEMINI_API_KEY}}") {
+                    throw new Error("API key placeholder not replaced. Please set up the GitHub Action secret.");
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                const headers = { 'Content-Type': 'application/json' };
+
+                const response = await fetch(apiUrl, { method: 'POST', headers, body: JSON.stringify(payload) });
+                if (!response.ok) {
+                    const errorBody = await response.text();
+                    console.error("API Error Response:", errorBody);
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                const result = await response.json();
+
+                if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
+                    return result.candidates[0].content.parts[0].text;
+                }
+                
+                throw new Error("Invalid response structure from API.");
             };
 
             const appendMessage = (text, type) => {
@@ -391,9 +452,15 @@
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             };
 
-            sendButton.addEventListener('click', sendMessage);
+            // --- Event Listeners ---
+            sendButton.addEventListener('click', () => sendMessage());
             chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') sendMessage();
+            });
+            predefinedQuestionsContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    sendMessage(e.target.textContent);
+                }
             });
         });
     </script>
