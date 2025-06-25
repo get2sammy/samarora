@@ -36,14 +36,14 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .resume-table th, .resume-table td {
-            border: 1px solid #dee2e6;
-            padding: 0.75rem;
-            text-align: left;
+        .resume-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-        .resume-table th {
-            background-color: #f8f9fa;
-            font-weight: 600;
+        .resume-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
         .chat-bubble {
             max-width: 80%;
@@ -149,12 +149,12 @@
                          <button id="download-pdf" class="bg-[#A0522D] text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-90 transition">Download as PDF</button>
                     </div>
                      
-                    <div class="border-b-2 border-gray-100 pb-6 mb-6">
+                    <div class="resume-section">
                         <h3 class="text-2xl font-bold text-[#3B3C36]">Professional Summary</h3>
                         <p class="mt-2 text-gray-700 leading-relaxed">A highly accomplished and hands-on technology leader with over 20 years of experience architecting and delivering transformative AI, DevSecOps, and cloud solutions for the world's leading financial, insurance, and enterprise organizations. I excel at bridging the gap between C-suite vision and engineering execution, building high-performing teams, and designing future-proof platforms that are secure, scalable, and intelligent by default. My leadership is rooted in a passion for purposeful innovation, fostering a culture of experimentation and continuous learning to solve complex business challenges.</p>
                     </div>
 
-                    <div class="border-b-2 border-gray-100 pb-6 mb-6">
+                    <div class="resume-section">
                         <h3 class="text-2xl font-bold text-[#3B3C36]">Key Achievements</h3>
                         <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2">
                             <li><strong>Delivered £100k+ in annual savings</strong> by re-architecting costly, persistent cloud infrastructure into an intelligent, on-demand resource model.</li>
@@ -164,31 +164,13 @@
                             <li><strong>Successfully presented AI innovation roadmaps to C-suite stakeholders,</strong> influencing enterprise-level investment and strategic direction at major global firms.</li>
                         </ul>
                     </div>
-
-                    <div class="border-b-2 border-gray-100 pb-6 mb-6">
-                        <h3 class="text-2xl font-bold text-[#3B3C36]">Technical Expertise</h3>
-                        <div class="overflow-x-auto mt-4">
-                            <table class="w-full border-collapse resume-table">
-                                <thead>
-                                    <tr><th>Category</th><th>Skills</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>AI / ML</strong></td><td>Llama 3.x, Fine-Tuning (Ollama, Hugging Face), RAG, Agentic Workflows, Azure OpenAI, GCP Vertex AI (Gemini), LangChain, Prompt Engineering, Model Ops</td></tr>
-                                    <tr><td><strong>Cloud & Infrastructure</strong></td><td>Azure, GCP, AWS, Kubernetes (AKS, GKE), Terraform, Ansible, Multi-Region Architecture, Landing Zones, Infrastructure as Code (IaC)</td></tr>
-                                    <tr><td><strong>DevSecOps & CI/CD</strong></td><td>GitHub Actions, Jenkins, GitLab CI, Prisma Cloud, SAST/DAST/SCA Integration, Policy-as-Code (OPA), Secretless Architecture</td></tr>
-                                    <tr><td><strong>Security & Compliance</strong></td><td>ISO27001, NIST, SOC2, GDPR, Cloud Security Posture Management (CSPM), Secure SDLC, Keyless Authentication (OIDC, Workload Identity)</td></tr>
-                                    <tr><td><strong>Languages & Frameworks</strong></td><td>Python, React, Node.js, Flask, PowerShell</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                     <div class="border-b-2 border-gray-100 pb-6 mb-6">
+                    
+                    <div class="resume-section">
                         <h3 class="text-2xl font-bold text-[#3B3C36]">Marquee Engagements & Experience</h3>
-                        <div class="mt-4 space-y-6">
+                        <div class="mt-4 space-y-8">
                             <div>
-                                <h4 class="text-lg font-bold">Director & Principal Consultant | Samokash Ltd</h4>
-                                <p class="text-sm font-semibold text-gray-600">Apr 2023 – Present</p>
+                                <h4 class="text-xl font-bold">Director & Principal Consultant | Samokash Ltd</h4>
+                                <p class="text-md font-semibold text-gray-600">Apr 2023 – Present</p>
                                 <p class="mt-2 text-gray-700 italic">Engaged by leading global firms to architect and deliver strategic AI, Cloud, and DevSecOps initiatives. Notable direct client engagements include:</p>
                                 <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2 pl-4">
                                     <li><strong>Principal AI & Cloud Architect (Contract) |</strong> Legal & General (UK & America)</li>
@@ -197,18 +179,36 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold">Senior DevOps Engineer (AI/ML & DevSecOps) | London Stock Exchange</h4>
-                                <p class="text-sm font-semibold text-gray-600">Aug 2022 – Apr 2023</p>
+                                <h4 class="text-xl font-bold">Senior DevOps Engineer (AI/ML & DevSecOps) | London Stock Exchange</h4>
+                                <p class="text-md font-semibold text-gray-600">Aug 2022 – Apr 2023</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Setup IaC pipeline in GitLab Action using Terraform and architected multi-region pipeline automation.</li>
+                                    <li>Led Landing Zone build-out, strategy, and implementation using custom Terraform modules.</li>
+                                    <li>Championed a shift-left approach to security, integrating scanning within the pipeline and IDE.</li>
+                                </ul>
                             </div>
                              <div>
-                                <h4 class="text-lg font-bold">Head of DevOps (Blockchain & AI Model Ops) | EY (Insurwave)</h4>
-                                <p class="text-sm font-semibold text-gray-600">Mar 2018 – Jun 2020</p>
+                                <h4 class="text-xl font-bold">DevSecOps Lead | Allianz UK</h4>
+                                <p class="text-md font-semibold text-gray-600">Mar 2022 – Aug 2022</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Led a DevSecOps transformation, building CI/CD pipelines and managing AKS pipelines with Terraform and Ansible.</li>
+                                    <li>Architected HA systems with AKS behind a traffic manager for disaster recovery.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Head of DevOps (Blockchain & AI Model Ops) | EY (Insurwave)</h4>
+                                <p class="text-md font-semibold text-gray-600">Mar 2018 – Jun 2020</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Led the DevOps team, overseeing the Marine Blockchain DevOps transformation project.</li>
+                                    <li>Re-architected the platform from Azure App Service Environment to Azure Kubernetes Service, reducing monthly costs from £20k to £2k per environment.</li>
+                                    <li>Built CI/CD pipelines from scratch and defined automated testing strategies.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                      <div>
                         <h3 class="text-2xl font-bold text-[#3B3C36]">Previous Foundational Experience</h3>
-                        <div class="mt-4 text-gray-700 space-y-1">
+                        <div class="mt-4 text-gray-700 space-y-2">
                              <p><strong>Bank of America</strong> – Project Lead / DevOps Engineer | Apr 2016 – Sep 2017</p>
                              <p><strong>Commerzbank (London)</strong> – Infrastructure Consultant | Jan 2016 – Apr 2016</p>
                              <p><strong>CLOSE BROTHERS GROUP (London)</strong> – Infrastructure, Security Consultant | Jan 2015 – Jan 2016</p>
@@ -222,14 +222,14 @@
 
             <!-- Interactive Report Section -->
             <section id="interactive-report" class="content-section">
-                <div class="w-full h-[80vh] bg-white rounded-lg shadow-md">
+                <div class="w-full h-[90vh] bg-white rounded-lg shadow-md">
                      <iframe id="report-iframe" class="w-full h-full border-0 rounded-lg" title="Interactive Report: The Career of Sam Arora"></iframe>
                 </div>
             </section>
             
             <!-- Chatbot Section -->
             <section id="chatbot" class="content-section">
-                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md h-[80vh] flex flex-col">
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md h-[90vh] flex flex-col">
                     <h2 class="text-3xl font-bold text-[#3B3C36] mb-4 border-b-2 border-gray-100 pb-4">Chat with My AI</h2>
                     <div id="chat-window" class="flex-grow overflow-y-auto p-4 space-y-4">
                         <div class="flex justify-start">
@@ -241,9 +241,9 @@
                     <div class="pt-2">
                         <p class="text-sm font-semibold text-gray-600 mb-2 px-4">Suggestions:</p>
                         <div id="predefined-questions" class="flex flex-wrap gap-2 px-4 mb-4">
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Tell me about Sam's career journey.</button>
                             <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What are his key achievements?</button>
                             <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Summarize his experience with AI.</button>
-                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Which major companies has he worked with?</button>
                         </div>
                     </div>
                     <div class="mt-2 border-t-2 border-gray-100 pt-4">
@@ -280,7 +280,7 @@
                 const { jsPDF } = window.jspdf;
                 const resumeContent = document.getElementById('resume-content');
                 
-                html2canvas(resumeContent, { scale: 2 }).then(canvas => {
+                html2canvas(resumeContent, { scale: 2, useCORS: true }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
                     const pdf = new jsPDF({
                         orientation: 'portrait',
@@ -320,17 +320,9 @@
                 <body class="antialiased">
                     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                          <header class="text-center mb-16"><h1 class="text-4xl md:text-5xl font-extrabold text-[#3B3C36] mb-3">Interactive Professional Report</h1><h2 class="text-2xl md:text-3xl font-bold text-[#A0522D]">Sam Arora</h2></header>
-                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Key Performance Indicators</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">£100k+</p><p class="mt-2 text-lg font-semibold">Annual Cloud Savings</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">40%</p><p class="mt-2 text-lg font-semibold">Faster Onboarding</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">100%</p><p class="mt-2 text-lg font-semibold">Secret Elimination</p></div></div></section>
-                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Technical Expertise Analysis</h3><div class="bg-white rounded-xl shadow-lg p-6 md:p-8"><div class="chart-container h-[500px] max-h-[600px] md:h-[600px] md:max-h-[700px]"><canvas id="expertiseChart"><\/canvas></div></div></section>
-                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-12">Marquee Engagements</h3><div class="max-w-3xl mx-auto"><div class="relative pl-8 border-l-4 border-[#D2B48C]"><div class="space-y-12"><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">Apr 2023 – Present</p><h4 class="text-xl font-bold mt-1">Director & Principal Consultant</h4><div class="mt-4 space-y-2 text-sm pl-4 border-l-2 border-[#D2B48C]"><p><strong>Principal Architect |</strong> Legal & General</p><p><strong>Principal Architect |</strong> Euroclear & Pret</p></div></div></div><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">Aug 2022 – Apr 2023</p><h4 class="text-xl font-bold mt-1">Senior DevOps Engineer</h4><p class="font-semibold text-gray-700">London Stock Exchange</p></div></div></div></div></div></section>
+                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Key Performance Indicators</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">90%</p><p class="mt-2 text-lg font-semibold">Cost Reduction at EY</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">40%</p><p class="mt-2 text-lg font-semibold">Faster Onboarding</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">100%</p><p class="mt-2 text-lg font-semibold">Secret Elimination</p></div></div></section>
+                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-12">Career Journey Timeline</h3><div class="max-w-3xl mx-auto"><div class="relative pl-8 border-l-4 border-[#D2B48C]"><div class="space-y-12"><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">2023 – Present</p><h4 class="text-xl font-bold mt-1">Principal AI & DevSecOps Architect</h4><p class="font-semibold text-gray-700">Engagements: Legal & General, Euroclear, Pret</p></div></div><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">2022 – 2023</p><h4 class="text-xl font-bold mt-1">Senior DevOps Engineer</h4><p class="font-semibold text-gray-700">London Stock Exchange</p></div></div><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">2018 – 2020</p><h4 class="text-xl font-bold mt-1">Head of DevOps</h4><p class="font-semibold text-gray-700">EY (Insurwave)</p></div></div><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">2016 – 2017</p><h4 class="text-xl font-bold mt-1">DevOps & Automation Lead</h4><p class="font-semibold text-gray-700">Bank of America</p></div></div></div></div></div></section>
                     </main>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            const expertiseData = { labels: ['Llama 3.x', 'Azure OpenAI', 'Terraform', 'Kubernetes', 'GitHub Actions', 'Policy-as-Code', 'Keyless Auth', 'Python'], datasets: [{ label: 'Proficiency', data: [95, 90, 98, 95, 99, 90, 98, 95], backgroundColor: ['#A0522D', '#B87333', '#C4A484', '#D2B48C', '#A0522D', '#B87333', '#C4A484', '#D2B48C'] }] };
-                            const expertiseCtx = document.getElementById('expertiseChart');
-                            if(expertiseCtx) { new Chart(expertiseCtx, { type: 'bar', data: expertiseData, options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { display: false } } } } }); }
-                        });
-                    <\/script>
                 </body>
                 </html>
             `;
@@ -342,42 +334,43 @@
             const sendButton = document.getElementById('chat-send');
             const predefinedQuestionsContainer = document.getElementById('predefined-questions');
             
-            const resumeContext = `
-                This is a professional profile for Sam Arora.
-
-                **Core Identity:**
-                - Title: Principal AI/ML & DevSecOps Architect
-                - Experience: Over 20 years
-                - Summary: A hands-on technology leader specializing in AI, DevSecOps, and cloud solutions. He bridges the gap between high-level strategy and technical execution.
-
-                **Key Achievements (Quantifiable):**
-                - Saved over £100k annually by optimizing cloud infrastructure.
-                - Accelerated application onboarding by 40% with standardized platforms.
-                - Eliminated 100% of static secrets in CI/CD pipelines via keyless authentication.
-
-                **Technical Expertise Breakdown:**
-                - AI/ML: Proficient with Large Language Models like Llama 3.x, and platforms like Azure OpenAI and GCP Vertex AI (Gemini). Skilled in fine-tuning, RAG (Retrieval-Augmented Generation), and building agentic workflows.
-                - Cloud & Infrastructure: Expert in Azure, GCP, and AWS. Manages infrastructure as code using Terraform and Ansible. Expert in Kubernetes (AKS, GKE).
-                - DevSecOps & CI/CD: Builds and secures pipelines using GitHub Actions, Jenkins, and GitLab CI. Uses Prisma Cloud for security and OPA (Open Policy Agent) for policy-as-code.
-                - Security & Compliance Frameworks: Deep knowledge of ISO27001, NIST, SOC2, and GDPR. Implements secure SDLC and keyless authentication using OIDC.
-                - Programming: Python, React, Node.js, Flask, PowerShell.
-
-                **Recent Professional Engagements (Post-2022):**
-                - Current Role: Director & Principal Consultant at Samokash Ltd (since April 2023).
-                - Direct Client Work (as Principal Architect/Strategist): Legal & General (UK & America), Euroclear, Pret, and Chase. This work involves AI strategy, cloud architecture, and DevSecOps leadership.
-                - Previous Role: Senior DevOps Engineer at London Stock Exchange (until April 2023).
-
-                **Key Project Summaries:**
-                - For Insurance (Local AI Model): Developed an internal, air-gapped AI system using a fine-tuned Llama 3 model to analyze sensitive medical data for underwriting, improving accuracy.
-                - For Finance (AI Risk Guard): Built a safety system that acts as a firewall for LLM outputs to prevent hallucinations and bias.
-                - For Cloud Security (Keyless Auth): Deployed a secretless access solution for GCP using Workload Identity Federation, eliminating the need for static service account keys.
-
-                **Simulated Private Repository Insights:**
-                - From private GitHub repo 'agentic-finance-framework': Contains code for a Python-based framework using LangChain to create financial analysis agents. The README highlights a modular design for swapping different LLMs and vector databases.
-                - From private Hugging Face Space 'medical-llama-finetune': Includes notes on a project fine-tuning a Llama model on a private medical dataset. Key learning was the importance of data decontamination to prevent memorization of sensitive information.
-            `;
+            const knowledgeBase = {
+                "default": "I can only answer questions based on Sam Arora's provided professional profile. Please try asking about his experience, skills, or projects.",
+                "greeting": "Hello! I am an AI assistant trained on Sam Arora's professional background. How can I help you?",
+                "journey": "Sam Arora's 20+ year career shows a clear evolution of expertise. He began with foundational roles in systems operations and engineering (SysOps, WinOps), mastering infrastructure and automation. This led him to become a leader in the DevOps movement, focusing on CI/CD and Infrastructure as Code. He then advanced into DevSecOps, integrating security into the entire development lifecycle. Most recently, he has pivoted to the cutting edge of technology, serving as a Principal Architect in AI, Machine Learning, and complex solutions for major enterprise clients.",
+                "experience": "Sam Arora has over 20 years of experience as a hands-on technology leader, specializing in AI, DevSecOps, and cloud solutions. His recent roles include Director & Principal Consultant at Samokash Ltd, with direct client work for firms like Legal & General, Euroclear, Pret, and Chase.",
+                "ai": "Sam is proficient with Large Language Models like Llama 3.x, and platforms like Azure OpenAI and GCP Vertex AI (Gemini). He is skilled in fine-tuning, Retrieval-Augmented Generation (RAG), and building agentic workflows. A key project involved developing an internal AI system for an insurance client using a fine-tuned Llama model to analyze sensitive data.",
+                "cloud": "Sam is an expert in Azure, GCP, and AWS. He uses Terraform and Ansible for Infrastructure as Code and is highly skilled with Kubernetes (AKS, GKE). A notable project was leading the design of secure, multi-region cloud platforms.",
+                "devops": "His DevSecOps expertise includes building and securing CI/CD pipelines with tools like GitHub Actions and Jenkins. He uses Prisma Cloud for security and OPA (Open Policy Agent) for policy-as-code.",
+                "security": "Sam has deep knowledge of security and compliance frameworks like ISO27001, NIST, and SOC2. He pioneered a keyless authentication strategy for GCP to eliminate secrets management risks, a major security enhancement.",
+                "projects": "Key projects include: 1) A local AI model for insurance underwriting. 2) An 'AI Risk Guard' to prevent model hallucinations in finance. 3) A keyless, secretless authentication system for Google Cloud.",
+                "contact": "You can reach Sam Arora at sam.arora@samokash.com or 07706070809. You can also find him on LinkedIn, GitHub, and Hugging Face.",
+                "skills": "His skills include AI/ML (Llama 3.x, LangChain), Cloud (Azure, GCP, AWS, Kubernetes), DevSecOps (GitHub Actions, Terraform, Prisma Cloud), Security (NIST, SOC2, Keyless Auth), and programming (Python, React, Node.js).",
+                "achievements": "His key achievements include saving over £100k annually in cloud costs, accelerating application onboarding by 40%, and architecting secure, agentic AI applications for the finance and insurance industries.",
+                "companies": "He has worked with major companies including Legal & General, Euroclear, Pret, Chase, London Stock Exchange, EY, Bank of America, Commerzbank, Microsoft, and more."
+            };
             
-            const sendMessage = async (message) => {
+            const getSimulatedAiResponse = (userInput) => {
+                const lowerInput = userInput.toLowerCase().trim();
+                const hasWord = (phrase, word) => new RegExp('\\b' + word + '\\b', 'i').test(phrase);
+
+                if (hasWord(lowerInput, 'journey') || hasWord(lowerInput, 'career') || lowerInput.includes("tell me about sam")) return knowledgeBase.journey;
+                if (hasWord(lowerInput, 'hello') || hasWord(lowerInput, 'hi')) return knowledgeBase.greeting;
+                if (hasWord(lowerInput, 'achievements')) return knowledgeBase.achievements;
+                if (hasWord(lowerInput, 'experience') || hasWord(lowerInput, 'background')) return knowledgeBase.experience;
+                if (hasWord(lowerInput, 'ai') || hasWord(lowerInput, 'ml') || hasWord(lowerInput, 'llama')) return knowledgeBase.ai;
+                if (hasWord(lowerInput, 'cloud') || hasWord(lowerInput, 'azure') || hasWord(lowerInput, 'gcp')) return knowledgeBase.cloud;
+                if (hasWord(lowerInput, 'devops') || hasWord(lowerInput, 'cicd')) return knowledgeBase.devops;
+                if (hasWord(lowerInput, 'security') || hasWord(lowerInput, 'compliance')) return knowledgeBase.security;
+                if (hasWord(lowerInput, 'project')) return knowledgeBase.projects;
+                if (hasWord(lowerInput, 'contact') || hasWord(lowerInput, 'email')) return knowledgeBase.contact;
+                if (hasWord(lowerInput, 'skills') || lowerInput.includes('expertise')) return knowledgeBase.skills;
+                if (hasWord(lowerInput, 'companies') || hasWord(lowerInput, 'clients')) return knowledgeBase.companies;
+                
+                return knowledgeBase.default;
+            };
+
+            const sendMessage = (message) => {
                 const userInput = message || chatInput.value.trim();
                 if (!userInput) return;
 
@@ -385,34 +378,14 @@
                 chatInput.value = '';
                 appendMessage('', 'thinking');
 
-                const prompt = `You are an AI assistant for Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, you MUST respond with "I can only answer questions based on Sam Arora's provided professional profile." Be professional and concise.\n\n== CONTEXT ==\n${resumeContext}\n\n== USER QUESTION ==\n${userInput}`;
-                
-                try {
-                    const responseText = await getAiResponse(prompt);
-                    document.querySelector('.thinking').parentElement.remove();
+                setTimeout(() => {
+                    const responseText = getSimulatedAiResponse(userInput);
+                    const thinkingBubble = document.querySelector('.thinking');
+                    if (thinkingBubble) {
+                        thinkingBubble.parentElement.remove();
+                    }
                     appendMessage(responseText, 'ai');
-                } catch (error) {
-                    document.querySelector('.thinking').parentElement.remove();
-                    appendMessage(error.message, 'ai');
-                    console.error('Error fetching AI response:', error);
-                }
-            };
-
-            const getAiResponse = async (prompt) => {
-                const proxyUrl = 'https://chatbot-backend-service-778752718405.europe-west1.run.app';
-                
-                const response = await fetch(proxyUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt: prompt })
-                });
-
-                if (!response.ok) {
-                    throw new Error("The chatbot is currently unavailable. Please try again later.");
-                }
-
-                const result = await response.json();
-                return result.text;
+                }, 1000);
             };
 
             const appendMessage = (text, type) => {
@@ -433,7 +406,6 @@
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             };
 
-            // --- Event Listeners ---
             sendButton.addEventListener('click', () => sendMessage());
             chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') sendMessage();
