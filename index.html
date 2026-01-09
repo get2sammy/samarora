@@ -124,6 +124,61 @@
             font-weight: 600;
             font-size: 0.875rem;
         }
+        /* Architecture Diagram Styles */
+        .diagram-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .diagram-tab {
+            padding: 0.5rem 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            background-color: white;
+        }
+        .diagram-tab:hover {
+            background-color: #f8f9fa;
+        }
+        .diagram-tab.active {
+            background-color: #A0522D;
+            color: white;
+            border-color: #A0522D;
+        }
+        .diagram-content {
+            display: none;
+        }
+        .diagram-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .ascii-diagram {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.75rem;
+            line-height: 1.3;
+            background-color: #1a1a2e;
+            color: #00ff88;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .diagram-description {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .sensitive-note {
+            color: #718096;
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -139,6 +194,7 @@
             <nav class="mt-12">
                 <ul class="space-y-4">
                     <li><a class="nav-link active block pb-2" data-target="resume">Full Resume</a></li>
+                    <li><a class="nav-link block pb-2" data-target="architecture">Architecture Diagrams</a></li>
                     <li><a class="nav-link block pb-2" data-target="interactive-report">Interactive Report</a></li>
                     <li><a class="nav-link block pb-2" data-target="chatbot">Chat with My AI</a></li>
                 </ul>
@@ -235,8 +291,8 @@
                                         <tbody>
                                             <tr><td>Fortune 500 US Insurer</td><td>Life Insurance</td><td>Azure AI Foundry, AKS/KAITO, Service Bus</td></tr>
                                             <tr><td>Major UK Insurer</td><td>General Insurance</td><td>AKS GPU, VNets, Private Endpoints, Event Grid</td></tr>
-                                            <tr><td>Global Retail QSR (Pret)</td><td>Food & Beverage</td><td>Copilot Studio, Logic Apps, API Management</td></tr>
-                                            <tr><td>UK Government (Defra)</td><td>Public Sector</td><td>Azure Landing Zone, Policy, Governance</td></tr>
+                                            <tr><td>Global QSR Enterprise</td><td>Food & Beverage</td><td>Copilot Studio, Logic Apps, API Management</td></tr>
+                                            <tr><td>UK Government Department</td><td>Public Sector</td><td>Azure Landing Zone, Policy, Governance</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -276,6 +332,168 @@
                  </div>
             </section>
 
+            <!-- Architecture Diagrams Section -->
+            <section id="architecture" class="content-section">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-3xl font-bold text-[#3B3C36] mb-6">Architecture Diagrams</h2>
+                    <p class="text-gray-600 mb-6">Interactive overview of enterprise AI architectures delivered. Client-specific details have been generalized.</p>
+
+                    <div class="diagram-tabs">
+                        <button class="diagram-tab active" data-diagram="azure-ai">Azure AI Platform</button>
+                        <button class="diagram-tab" data-diagram="copilot-studio">Copilot Studio</button>
+                        <button class="diagram-tab" data-diagram="multi-agent">Multi-Agent Framework</button>
+                        <button class="diagram-tab" data-diagram="delivery">End-to-End Delivery</button>
+                    </div>
+
+                    <!-- Azure AI Platform Diagram -->
+                    <div id="diagram-azure-ai" class="diagram-content active">
+                        <div class="ascii-diagram">
+┌────────────────────────────────────────────────────────────────────┐
+│                    AZURE AI ARCHITECTURE                            │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌────────────────┐  │
+│  │  Azure AI       │    │   Intelligent   │    │   AKS/KAITO    │  │
+│  │  Foundry        │───▶│   Router        │───▶│   GPU Cluster  │  │
+│  │  (Custom Models)│    │   (Cost/Perf)   │    │   (A100 GPUs)  │  │
+│  └─────────────────┘    └─────────────────┘    └────────────────┘  │
+│         │                       │                      │           │
+│         ▼                       ▼                      ▼           │
+│  • GPT-4, GPT-4o         • Simple → Foundry     • Complex → AKS   │
+│  • Custom fine-tuned     • Complex → AKS        • Llama 3.x       │
+│  • Prompt Flow           • Cost threshold       • Mistral 7B      │
+│  • AI Search             • Latency routing      • Qwen 2.5/3      │
+│                                                                     │
+├────────────────────────────────────────────────────────────────────┤
+│  NETWORKING: VNets │ Private Endpoints │ NSGs │ Azure Firewall    │
+│  INTEGRATION: Service Bus │ Event Grid │ API Management           │
+│  MONITORING: Azure Monitor │ Log Analytics │ Application Insights │
+└────────────────────────────────────────────────────────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Azure AI Platform Architecture</h4>
+                            <p class="text-gray-700 mb-2">Cost-optimized hybrid architecture combining Azure AI Foundry for prototyping and low-volume tasks with self-hosted models on AKS for high-throughput production workloads.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Intelligent Router:</strong> Analyzes query complexity to route simple requests to Foundry (pay-per-token) and complex requests to AKS (fixed infrastructure cost)</li>
+                                <li><strong>Result:</strong> 93% cost reduction while maintaining quality at 47,637 requests/hour</li>
+                                <li><strong>Security:</strong> Private endpoints, managed identities, Key Vault integration</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Architecture generalized from Fortune 500 insurance implementation. Specific thresholds and routing logic are proprietary.</p>
+                        </div>
+                    </div>
+
+                    <!-- Copilot Studio Diagram -->
+                    <div id="diagram-copilot-studio" class="diagram-content">
+                        <div class="ascii-diagram">
+┌────────────────────────────────────────────────────────────────┐
+│              COPILOT STUDIO HR PLATFORM                         │
+├────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────────────┐ │
+│  │  Copilot    │    │   Custom    │    │   Backend           │ │
+│  │  Studio     │───▶│   Agents    │───▶│   Integration       │ │
+│  │  (Canvas)   │    │   (Topics)  │    │   (Logic Apps)      │ │
+│  └─────────────┘    └─────────────┘    └─────────────────────┘ │
+│        │                  │                      │              │
+│        ▼                  ▼                      ▼              │
+│  • Conversational   • Policy lookup      • ITSM API           │
+│  • Multi-channel    • Leave requests     • HR System connectors│
+│  • Adaptive cards   • Benefits Q&A       • Azure Functions     │
+│  • Authentication   • Manager escalation • API Management      │
+│                                                                 │
+├────────────────────────────────────────────────────────────────┤
+│  CHANNELS: Teams │ Web │ Mobile                                │
+│  AUTH: Entra ID │ Conditional Access │ SSO                     │
+│  ANALYTICS: Power BI │ Application Insights │ Custom Metrics   │
+└────────────────────────────────────────────────────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Microsoft Copilot Studio HR Platform</h4>
+                            <p class="text-gray-700 mb-2">Enterprise-scale conversational AI platform for HR automation, serving 10,000+ employees across multiple channels.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>50+ Topics:</strong> Comprehensive coverage of HR policies, benefits, leave management, and employee queries</li>
+                                <li><strong>Custom Connectors:</strong> Logic Apps integration with ITSM for ticket creation and HR systems for data retrieval</li>
+                                <li><strong>Results:</strong> 89.3% automated resolution rate, 4.6/5 employee satisfaction</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Architecture from global retail enterprise implementation. Backend system names generalized.</p>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Agent Framework Diagram -->
+                    <div id="diagram-multi-agent" class="diagram-content">
+                        <div class="ascii-diagram">
+┌─────────────────────────────────────────────────────────────────┐
+│                    ORCHESTRATOR AGENT                           │
+│         (Coordinates, maintains context, aggregates)            │
+└─────────────────────────────────────────────────────────────────┘
+        │              │              │              │
+        ▼              ▼              ▼              ▼
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ EXTRACTION  │ │ ANALYSIS    │ │ RISK        │ │ VALIDATION  │
+│ AGENT       │ │ AGENT       │ │ AGENT       │ │ AGENT       │
+├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤
+│ • Document  │ │ • Domain-   │ │ • Risk      │ │ • Cross-    │
+│   parsing   │ │   specific  │ │   scoring   │ │   validation│
+│ • Entity    │ │   analysis  │ │ • Flag      │ │ • Confidence│
+│   extraction│ │ • Pattern   │ │   generation│ │   scoring   │
+│ • Structur- │ │   matching  │ │ • Business  │ │ • Quality   │
+│   ing       │ │ • Inference │ │   rules     │ │   assurance │
+└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘
+        │              │              │              │
+        └──────────────┴──────────────┴──────────────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │ UNIFIED OUTPUT  │
+                    │ (Audit Trail)   │
+                    └─────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Multi-Agent AI Framework</h4>
+                            <p class="text-gray-700 mb-2">Distributed agent architecture for complex document intelligence processing with specialized agents working in coordination.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Orchestrator:</strong> Manages workflow, context sharing, and result aggregation across agents</li>
+                                <li><strong>Specialized Agents:</strong> Each agent optimized for specific task (extraction, analysis, risk scoring, validation)</li>
+                                <li><strong>Performance:</strong> 18 seconds for complete 4-agent analysis, 100% success rate, 75% high confidence</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Architecture generalized from insurance document processing. Domain-specific agent logic is proprietary.</p>
+                        </div>
+                    </div>
+
+                    <!-- End-to-End Delivery Diagram -->
+                    <div id="diagram-delivery" class="diagram-content">
+                        <div class="ascii-diagram">
+CONCEPT ──► DESIGN ──► BUILD ──► SECURE ──► DEPLOY ──► OPERATE
+    │          │          │          │          │          │
+    ▼          ▼          ▼          ▼          ▼          ▼
+┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+│Stake-  │ │HLD/LLD │ │Python  │ │Defender│ │GitHub  │ │Azure   │
+│holder  │ │Azure   │ │FastAPI │ │Key     │ │Actions │ │Monitor │
+│Engage- │ │Archi-  │ │AKS/GPU │ │Vault   │ │Terra-  │ │Log     │
+│ment    │ │tect    │ │Copilot │ │Policy  │ │form    │ │Analy-  │
+│Require-│ │Network-│ │Studio  │ │Managed │ │AKS/    │ │tics    │
+│ments   │ │ing     │ │        │ │Ident-  │ │KAITO   │ │Alerts  │
+│Business│ │VNets/  │ │        │ │ity     │ │Blue/   │ │        │
+│Case    │ │SB      │ │        │ │        │ │Green   │ │        │
+└────────┘ └────────┘ └────────┘ └────────┘ └────────┘ └────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">End-to-End Delivery Approach</h4>
+                            <p class="text-gray-700 mb-2">Full lifecycle ownership from initial concept through production operations. No handoffs between design and implementation.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Concept:</strong> Stakeholder engagement, requirements gathering, business case development</li>
+                                <li><strong>Design:</strong> High/Low level design, Azure architecture, networking design</li>
+                                <li><strong>Build:</strong> Python/FastAPI development, AKS configuration, Copilot Studio topics</li>
+                                <li><strong>Secure:</strong> Defender integration, Key Vault, Azure Policy, managed identities</li>
+                                <li><strong>Deploy:</strong> GitHub Actions CI/CD, Terraform IaC, blue/green deployments</li>
+                                <li><strong>Operate:</strong> Azure Monitor, Log Analytics, alerting, incident response</li>
+                            </ul>
+                            <p class="mt-4 font-semibold text-[#A0522D]">"I don't hand off designs to developers. I architect, build, deploy, and operate."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Interactive Report Section -->
             <section id="interactive-report" class="content-section">
                 <div class="w-full h-[80vh] bg-white rounded-lg shadow-md">
@@ -290,7 +508,7 @@
                     <div id="chat-window" class="flex-grow overflow-y-auto p-4 space-y-4">
                         <div class="flex justify-start">
                             <div class="chat-bubble ai p-3 rounded-lg">
-                                Hello! I'm an AI assistant trained on Dr. Sam Arora's resume. Ask me anything about his Azure AI Foundry experience, Copilot Studio projects, or technical expertise.
+                                Hello! I'm an AI assistant trained on Dr. Sam Arora's resume and architecture portfolio. Ask me anything about his Azure AI Foundry experience, Copilot Studio projects, architecture designs, or technical expertise.
                             </div>
                         </div>
                     </div>
@@ -298,8 +516,9 @@
                         <p class="text-sm font-semibold text-gray-600 mb-2 px-4">Suggestions:</p>
                         <div id="predefined-questions" class="flex flex-wrap gap-2 px-4 mb-4">
                             <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What Azure AI Foundry experience does he have?</button>
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Describe the multi-agent architecture</button>
                             <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Tell me about his Copilot Studio work</button>
-                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What are his key achievements?</button>
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Show me the Azure AI platform diagram</button>
                         </div>
                     </div>
                     <div class="mt-2 border-t-2 border-gray-100 pt-4">
@@ -327,6 +546,21 @@
                     link.classList.add('active');
                     contentSections.forEach(section => {
                         section.classList.toggle('active', section.id === targetId);
+                    });
+                });
+            });
+
+            // --- Architecture Diagram Tab Logic ---
+            const diagramTabs = document.querySelectorAll('.diagram-tab');
+            const diagramContents = document.querySelectorAll('.diagram-content');
+
+            diagramTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetDiagram = tab.getAttribute('data-diagram');
+                    diagramTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    diagramContents.forEach(content => {
+                        content.classList.toggle('active', content.id === `diagram-${targetDiagram}`);
                     });
                 });
             });
@@ -399,6 +633,67 @@
 
             const BACKEND_URL = 'https://sam-arora-chat-backend-198500939007.us-central1.run.app';
 
+            // Architecture diagram descriptions for chatbot
+            const architectureDiagrams = {
+                azureAI: `
+AZURE AI PLATFORM ARCHITECTURE:
+┌────────────────────────────────────────────────────────────────────┐
+│                    AZURE AI ARCHITECTURE                            │
+├────────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐    ┌─────────────────┐    ┌────────────────┐  │
+│  │  Azure AI       │    │   Intelligent   │    │   AKS/KAITO    │  │
+│  │  Foundry        │───▶│   Router        │───▶│   GPU Cluster  │  │
+│  │  (Custom Models)│    │   (Cost/Perf)   │    │   (A100 GPUs)  │  │
+│  └─────────────────┘    └─────────────────┘    └────────────────┘  │
+│  • GPT-4, GPT-4o         • Simple → Foundry     • Complex → AKS   │
+│  • Custom fine-tuned     • Complex → AKS        • Llama 3.x       │
+│  • Prompt Flow           • Cost threshold       • Mistral/Qwen    │
+├────────────────────────────────────────────────────────────────────┤
+│  NETWORKING: VNets │ Private Endpoints │ NSGs │ Azure Firewall    │
+│  INTEGRATION: Service Bus │ Event Grid │ API Management           │
+└────────────────────────────────────────────────────────────────────┘
+
+This is a cost-optimized hybrid architecture combining Azure AI Foundry for simple queries with self-hosted models on AKS for complex processing. The intelligent router analyzes query complexity and routes appropriately. Result: 93% cost reduction at 47,637 requests/hour.`,
+
+                copilotStudio: `
+COPILOT STUDIO HR PLATFORM ARCHITECTURE:
+┌────────────────────────────────────────────────────────────────┐
+│              COPILOT STUDIO HR PLATFORM                         │
+├────────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────────────┐ │
+│  │  Copilot    │    │   Custom    │    │   Backend           │ │
+│  │  Studio     │───▶│   Agents    │───▶│   Integration       │ │
+│  │  (Canvas)   │    │   (Topics)  │    │   (Logic Apps)      │ │
+│  └─────────────┘    └─────────────┘    └─────────────────────┘ │
+│  • Conversational   • Policy lookup      • ITSM API           │
+│  • Multi-channel    • Leave requests     • HR System connectors│
+│  • Adaptive cards   • Benefits Q&A       • API Management      │
+│  • Authentication   • Manager escalation                       │
+└────────────────────────────────────────────────────────────────┘
+
+Enterprise HR automation platform serving 10,000+ employees. 50+ conversation topics, Logic Apps integration with ITSM and HR systems, Entra ID authentication. Results: 89.3% automated resolution rate, 4.6/5 satisfaction.`,
+
+                multiAgent: `
+MULTI-AGENT AI FRAMEWORK:
+┌─────────────────────────────────────────────────────────────────┐
+│                    ORCHESTRATOR AGENT                           │
+│         (Coordinates, maintains context, aggregates)            │
+└─────────────────────────────────────────────────────────────────┘
+        │              │              │              │
+        ▼              ▼              ▼              ▼
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ EXTRACTION  │ │ ANALYSIS    │ │ RISK        │ │ VALIDATION  │
+│ AGENT       │ │ AGENT       │ │ AGENT       │ │ AGENT       │
+├─────────────┤ ├─────────────┤ ├─────────────┤ ├─────────────┤
+│ • Document  │ │ • Domain-   │ │ • Risk      │ │ • Cross-    │
+│   parsing   │ │   specific  │ │   scoring   │ │   validation│
+│ • Entity    │ │   analysis  │ │ • Flag      │ │ • Confidence│
+│   extraction│ │ • Inference │ │   generation│ │   scoring   │
+└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘
+
+Distributed agent architecture for document intelligence. Orchestrator coordinates specialized agents (extraction, analysis, risk, validation). Performance: 18 seconds for 4-agent analysis, 100% success rate.`
+            };
+
             const resumeContext = `
                 This is a professional profile for Dr. Sam Arora, D.Sc.
 
@@ -416,12 +711,28 @@
                 - Result: 47,637 requests/hour throughput on AKS GPU infrastructure (NC48ads_A100)
 
                 **Microsoft Copilot Studio Experience:**
-                - Built enterprise HR platform for global retail QSR (Pret A Manger) serving 10,000+ employees
+                - Built enterprise HR platform for global QSR enterprise serving 10,000+ employees
                 - Designed 50+ conversation topics covering HR policies, benefits, leave management
-                - Built custom connectors via Logic Apps for ServiceNow ticket creation and Workday integration
+                - Built custom connectors via Logic Apps for ITSM ticket creation and HR system integration
                 - Implemented authentication via Azure AD/Entra ID with conditional access
                 - Deployed API Management layer for rate limiting and analytics
                 - Results: 89.3% ticket resolution without human intervention, 4.6/5 employee satisfaction
+
+                **Multi-Agent AI Framework:**
+                - Built distributed agent architecture for document intelligence processing
+                - Orchestrator agent coordinates specialized agents (extraction, analysis, risk, validation)
+                - Each agent optimized for specific task with cross-validation
+                - Performance: 18 seconds for complete 4-agent analysis, 100% success rate, 75% high confidence
+
+                **Architecture Diagrams Available:**
+                - Azure AI Platform: Hybrid architecture with Azure AI Foundry + AKS/KAITO for cost optimization
+                - Copilot Studio: Enterprise HR automation platform architecture
+                - Multi-Agent Framework: Distributed agent system for document processing
+                - End-to-End Delivery: Full lifecycle from concept to operations
+
+                ${architectureDiagrams.azureAI}
+                ${architectureDiagrams.copilotStudio}
+                ${architectureDiagrams.multiAgent}
 
                 **Quantified Achievements:**
                 - 47,637 requests/hour throughput on AKS/KAITO GPU infrastructure
@@ -431,7 +742,6 @@
                 - $35M+ annual value delivered through underwriting automation
                 - 97% hallucination detection accuracy with <2% false positive rate
                 - 94.8% decision accuracy vs 67% industry average
-                - 85% risk reduction through industry-first LLM security scanning
 
                 **Azure Technical Skills:**
                 - Azure AI & ML: Azure AI Foundry, Azure ML, Copilot Studio, Prompt Flow, AI Search, Cognitive Services
@@ -444,8 +754,8 @@
                 **Recent Client Engagements (Samokash Ltd, Apr 2023 - Present):**
                 - Fortune 500 US Insurer (Life Insurance): Azure AI Foundry, AKS/KAITO, Service Bus
                 - Major UK Insurer (General Insurance): AKS GPU, VNets, Private Endpoints, Event Grid
-                - Global Retail QSR - Pret A Manger (Food & Beverage): Copilot Studio, Logic Apps, API Management
-                - UK Government - Defra (Public Sector): Azure Landing Zone, Policy, Governance
+                - Global QSR Enterprise (Food & Beverage): Copilot Studio, Logic Apps, API Management
+                - UK Government Department (Public Sector): Azure Landing Zone, Policy, Governance
 
                 **Previous Roles:**
                 - Senior DevOps Architect at London Stock Exchange (Aug 2022 - Apr 2023)
@@ -455,7 +765,6 @@
                 **Patents & Publications:**
                 - Patent-Pending: Multi-Model AI Routing Architecture (2024) - 93% cost reduction
                 - Patent-Pending: Token-Grounded Zero-Hallucination Extraction (2024) - 100% traceability
-                - Industry First: Open-Source LLM Security Scanning Framework (2024)
 
                 **Key Differentiator:**
                 "I don't hand off designs to developers. I architect, build, deploy, and operate - end-to-end from whiteboard to production."
@@ -465,7 +774,6 @@
                 - Phone: 07706070809
                 - LinkedIn: linkedin.com/in/sam-arora-2739b515
                 - GitHub: github.com/get2sammy
-                - Hugging Face: huggingface.co/get2sammy
             `;
 
             const sendMessage = async (message) => {
@@ -476,7 +784,15 @@
                 chatInput.value = '';
                 appendMessage('', 'thinking');
 
-                const prompt = `You are an AI assistant for Dr. Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, respond with "I can only answer questions based on Dr. Sam Arora's provided professional profile." Be professional, concise, and highlight specific metrics and achievements when relevant.\n\n== CONTEXT ==\n${resumeContext}\n\n== USER QUESTION ==\n${userInput}`;
+                const prompt = `You are an AI assistant for Dr. Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, respond with "I can only answer questions based on Dr. Sam Arora's provided professional profile."
+
+When asked about architecture diagrams, you can display the ASCII diagrams from the context. Be professional, concise, and highlight specific metrics and achievements when relevant.
+
+== CONTEXT ==
+${resumeContext}
+
+== USER QUESTION ==
+${userInput}`;
 
                 try {
                     const response = await fetch(BACKEND_URL, {
@@ -514,7 +830,12 @@
                     messageBubble.innerHTML = '<div class="dot-flashing"></div>';
                 } else {
                     messageBubble.className = `chat-bubble ${type} p-3 rounded-lg`;
-                    messageBubble.textContent = text;
+                    // Handle ASCII diagrams with preformatted text
+                    if (text.includes('┌') || text.includes('│') || text.includes('└')) {
+                        messageBubble.innerHTML = `<pre style="font-family: monospace; font-size: 0.75rem; white-space: pre; overflow-x: auto;">${text}</pre>`;
+                    } else {
+                        messageBubble.textContent = text;
+                    }
                 }
 
                 messageWrapper.appendChild(messageBubble);
