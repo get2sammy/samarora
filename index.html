@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This CSP allows the page to connect to Google's API servers -->
-    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://*.googleapis.com;">
-    <title>Sam Arora | AI & DevSecOps Architect</title>
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://*.run.app;">
+    <title>Dr. Sam Arora, D.Sc. | AI Enterprise Solution Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -110,6 +109,21 @@
             background-color: #A0522D;
             color: white;
         }
+        .highlight-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .metric-badge {
+            display: inline-block;
+            background-color: #2c5282;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -118,8 +132,9 @@
         <!-- Sidebar / Header -->
         <aside class="w-full lg:w-1/4 bg-white shadow-lg p-8 lg:min-h-screen">
             <div class="text-center lg:text-left">
-                <h1 class="text-3xl font-extrabold text-[#3B3C36]">Sam Arora</h1>
-                <p class="text-md text-[#A0522D] font-semibold mt-1">Principal AI/ML & DevSecOps Architect</p>
+                <h1 class="text-3xl font-extrabold text-[#3B3C36]">Dr. Sam Arora, D.Sc.</h1>
+                <p class="text-md text-[#A0522D] font-semibold mt-1">AI Enterprise Solution Architect</p>
+                <p class="text-sm text-gray-600 mt-1">Azure AI Foundry | Copilot Studio | AKS</p>
             </div>
             <nav class="mt-12">
                 <ul class="space-y-4">
@@ -150,36 +165,58 @@
                          <h2 class="text-3xl font-bold text-[#3B3C36]">Full Resume</h2>
                          <button id="download-pdf" class="bg-[#A0522D] text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-90 transition">Download as PDF</button>
                     </div>
-                     
+
                     <div class="border-b-2 border-gray-100 pb-6 mb-6">
-                        <h3 class="text-2xl font-bold text-[#3B3C36]">Professional Summary</h3>
-                        <p class="mt-2 text-gray-700 leading-relaxed">A highly accomplished and hands-on technology leader with over 20 years of experience architecting and delivering transformative AI, DevSecOps, and cloud solutions for the world's leading financial, insurance, and enterprise organizations. I excel at bridging the gap between C-suite vision and engineering execution, building high-performing teams, and designing future-proof platforms that are secure, scalable, and intelligent by default. My leadership is rooted in a passion for purposeful innovation, fostering a culture of experimentation and continuous learning to solve complex business challenges.</p>
+                        <h3 class="text-2xl font-bold text-[#3B3C36]">Profile</h3>
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong>Hands-on AI Enterprise Solution Architect</strong> with D.Sc. in AI, delivering production Azure AI systems from concept to deployment. Deep expertise in <strong>Azure AI Foundry</strong>, <strong>Microsoft Copilot Studio</strong>, and <strong>AKS GPU infrastructure</strong>. Built and deployed multi-agent AI frameworks, LLM orchestration platforms, and enterprise AI solutions for Fortune 500 insurers, government bodies, and global enterprises.</p>
+
+                        <div class="highlight-box mt-4">
+                            <p class="font-semibold text-gray-800">Azure AI Delivery Highlights:</p>
+                            <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                <li><strong>Azure AI Foundry:</strong> Deployed GPT-4, custom models with Prompt Flow - pivoted to AKS/KAITO for 93% cost reduction</li>
+                                <li><strong>Copilot Studio:</strong> Built enterprise HR platform for 10,000+ employees with ServiceNow integration</li>
+                                <li><strong>Production Metrics:</strong> 47,637 requests/hour, 360x speed improvement, $35M+ annual value</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="border-b-2 border-gray-100 pb-6 mb-6">
-                        <h3 class="text-2xl font-bold text-[#3B3C36]">Key Achievements</h3>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2">
-                            <li><strong>Delivered £100k+ in annual savings</strong> by re-architecting costly, persistent cloud infrastructure into an intelligent, on-demand resource model.</li>
-                            <li><strong>Architected and deployed secure agentic AI applications</strong> for finance and insurance, ensuring full compliance with stringent NIST, ISO27001, and SOC standards.</li>
-                            <li><strong>Led the design of secure, multi-region platforms on Azure and GCP,</strong> enabling high availability and disaster recovery for mission-critical enterprise workloads.</li>
-                            <li><strong>Pioneered keyless authentication strategies in regulated cloud environments,</strong> eliminating secrets management risks and significantly enhancing enterprise security posture.</li>
-                            <li><strong>Successfully presented AI innovation roadmaps to C-suite stakeholders,</strong> influencing enterprise-level investment and strategic direction at major global firms.</li>
-                        </ul>
+                        <h3 class="text-2xl font-bold text-[#3B3C36]">Quantified Achievements</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">47,637</p>
+                                <p class="text-sm text-gray-600">requests/hour</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">93%</p>
+                                <p class="text-sm text-gray-600">cost reduction</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">89.3%</p>
+                                <p class="text-sm text-gray-600">HR resolution rate</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">$35M+</p>
+                                <p class="text-sm text-gray-600">annual value</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="border-b-2 border-gray-100 pb-6 mb-6">
-                        <h3 class="text-2xl font-bold text-[#3B3C36]">Technical Expertise</h3>
+                        <h3 class="text-2xl font-bold text-[#3B3C36]">Azure & Cloud Technical Skills</h3>
                         <div class="overflow-x-auto mt-4">
                             <table class="w-full border-collapse resume-table">
                                 <thead>
-                                    <tr><th>Category</th><th>Skills</th></tr>
+                                    <tr><th>Category</th><th>Technologies</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><strong>AI / ML</strong></td><td>Llama 3.x, Fine-Tuning (Ollama, Hugging Face), RAG, Agentic Workflows, Azure OpenAI, GCP Vertex AI (Gemini), LangChain, Prompt Engineering, Model Ops</td></tr>
-                                    <tr><td><strong>Cloud & Infrastructure</strong></td><td>Azure, GCP, AWS, Kubernetes (AKS, GKE), Terraform, Ansible, Multi-Region Architecture, Landing Zones, Infrastructure as Code (IaC)</td></tr>
-                                    <tr><td><strong>DevSecOps & CI/CD</strong></td><td>GitHub Actions, Jenkins, GitLab CI, Prisma Cloud, SAST/DAST/SCA Integration, Policy-as-Code (OPA), Secretless Architecture</td></tr>
-                                    <tr><td><strong>Security & Compliance</strong></td><td>ISO27001, NIST, SOC2, GDPR, Cloud Security Posture Management (CSPM), Secure SDLC, Keyless Authentication (OIDC, Workload Identity)</td></tr>
-                                    <tr><td><strong>Languages & Frameworks</strong></td><td>Python, React, Node.js, Flask, PowerShell</td></tr>
+                                    <tr><td><strong>Azure AI & ML</strong></td><td>Azure AI Foundry, Azure ML, Copilot Studio, Prompt Flow, AI Search, Cognitive Services, Custom Model Deployment</td></tr>
+                                    <tr><td><strong>Azure Compute</strong></td><td>AKS (GPU NC48ads_A100), KAITO Operator, Container Apps, Function Apps, App Service</td></tr>
+                                    <tr><td><strong>Azure Networking</strong></td><td>VNets, Private Endpoints, Application Gateway, Front Door, VPN Gateway, NSGs, Azure Firewall</td></tr>
+                                    <tr><td><strong>Azure Integration</strong></td><td>Service Bus, Event Grid, Logic Apps, API Management, Event Hubs, Azure Functions</td></tr>
+                                    <tr><td><strong>Azure Data</strong></td><td>Blob Storage, Synapse Analytics, Data Factory, Azure SQL, Cosmos DB, Monitor, Log Analytics</td></tr>
+                                    <tr><td><strong>Security & Governance</strong></td><td>Entra ID, Key Vault, Defender for Cloud, Azure Policy, RBAC, Managed Identities</td></tr>
+                                    <tr><td><strong>Other Clouds & Tools</strong></td><td>GCP (Vertex AI, Cloud Run), Terraform IaC, GitHub Actions, Llama 3.x, Mistral, Qwen</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -189,34 +226,51 @@
                         <h3 class="text-2xl font-bold text-[#3B3C36]">Marquee Engagements & Experience</h3>
                         <div class="mt-4 space-y-6">
                             <div>
-                                <h4 class="text-lg font-bold">Director & Principal Consultant | Samokash Ltd</h4>
-                                <p class="text-sm font-semibold text-gray-600">Apr 2023 – Present</p>
-                                <p class="mt-2 text-gray-700 italic">Engaged by leading global firms to architect and deliver strategic AI, Cloud, and DevSecOps initiatives. Notable direct client engagements include:</p>
-                                <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2 pl-4">
-                                    <li><strong>Principal AI & Cloud Architect (Contract) |</strong> Legal & General (UK & America)</li>
-                                    <li><strong>Principal DevSecOps Architect (Contract) |</strong> Euroclear & Pret (Concurrent Engagement)</li>
-                                    <li><strong>Principal AI Strategist (Contract) |</strong> Chase</li>
-                                </ul>
+                                <h4 class="text-lg font-bold">Director & Principal AI Consultant | Samokash Ltd</h4>
+                                <p class="text-sm font-semibold text-gray-600">Apr 2023 - Present</p>
+                                <p class="mt-2 text-gray-700">End-to-end Azure AI delivery for Fortune 500 insurers, government bodies, and global enterprises. From whiteboard to production.</p>
+                                <div class="mt-3 overflow-x-auto">
+                                    <table class="w-full border-collapse resume-table text-sm">
+                                        <thead><tr><th>Client</th><th>Industry</th><th>Azure Technologies</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Fortune 500 US Insurer</td><td>Life Insurance</td><td>Azure AI Foundry, AKS/KAITO, Service Bus</td></tr>
+                                            <tr><td>Major UK Insurer</td><td>General Insurance</td><td>AKS GPU, VNets, Private Endpoints, Event Grid</td></tr>
+                                            <tr><td>Global Retail QSR (Pret)</td><td>Food & Beverage</td><td>Copilot Studio, Logic Apps, API Management</td></tr>
+                                            <tr><td>UK Government (Defra)</td><td>Public Sector</td><td>Azure Landing Zone, Policy, Governance</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold">Senior DevOps Engineer (AI/ML & DevSecOps) | London Stock Exchange</h4>
-                                <p class="text-sm font-semibold text-gray-600">Aug 2022 – Apr 2023</p>
+                                <h4 class="text-lg font-bold">Senior DevOps Architect | London Stock Exchange</h4>
+                                <p class="text-sm font-semibold text-gray-600">Aug 2022 - Apr 2023</p>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                                    <li>Architected multi-region Azure Landing Zone with custom Terraform modules</li>
+                                    <li>Implemented Azure Policy for governance and compliance enforcement</li>
+                                    <li>40% fewer production failures with shift-left security pipelines</li>
+                                </ul>
                             </div>
                              <div>
                                 <h4 class="text-lg font-bold">Head of DevOps (Blockchain & AI Model Ops) | EY (Insurwave)</h4>
-                                <p class="text-sm font-semibold text-gray-600">Mar 2018 – Jun 2020</p>
+                                <p class="text-sm font-semibold text-gray-600">Mar 2018 - Jun 2020</p>
                             </div>
                         </div>
                     </div>
+                     <div class="border-b-2 border-gray-100 pb-6 mb-6">
+                        <h3 class="text-2xl font-bold text-[#3B3C36]">Earlier Career</h3>
+                        <div class="mt-4 text-gray-700 space-y-1 text-sm">
+                             <p><strong>Genesis Trading</strong> (DevSecOps Architect) | <strong>WPP</strong> (DevOps Lead) | <strong>Nationwide</strong> (DevSecOps Lead)</p>
+                             <p><strong>Vanquis Bank</strong> | <strong>Deutsche Bank</strong> | <strong>Bank of America</strong> | <strong>Commerzbank</strong></p>
+                             <p><strong>Close Brothers</strong> | <strong>Markit Group</strong> | <strong>Microsoft India</strong></p>
+                        </div>
+                     </div>
                      <div>
-                        <h3 class="text-2xl font-bold text-[#3B3C36]">Previous Foundational Experience</h3>
-                        <div class="mt-4 text-gray-700 space-y-1">
-                             <p><strong>Bank of America</strong> – Project Lead / DevOps Engineer | Apr 2016 – Sep 2017</p>
-                             <p><strong>Commerzbank (London)</strong> – Infrastructure Consultant | Jan 2016 – Apr 2016</p>
-                             <p><strong>CLOSE BROTHERS GROUP (London)</strong> – Infrastructure, Security Consultant | Jan 2015 – Jan 2016</p>
-                             <p><strong>MARKIT GROUP LTD</strong> – AVP DevOps, WinOps | Jul 2012 – Dec 2014</p>
-                             <p><strong>CAPITA IT SERVICES</strong> - Windows Technical Lead/Deputy Team Leader | Jan 2008 – Jul 2012</p>
-                             <p><strong>Microsoft (India)</strong> – EMEA Server Support/Operations | Mar 2002 – Mar 2004</p>
+                        <h3 class="text-2xl font-bold text-[#3B3C36]">Education & Credentials</h3>
+                        <div class="mt-4 text-gray-700 space-y-2">
+                             <p><strong>D.Sc. Computer Science (AI)</strong> - Doctorate in Artificial Intelligence</p>
+                             <p><strong>MSc IT Services Management</strong> - University of Northampton (2006)</p>
+                             <p><strong>MCSE</strong> - Microsoft Certified (2004, 2013)</p>
+                             <p class="mt-4 text-sm italic">Patent-Pending: Multi-Model AI Routing Architecture (93% cost reduction) | Token-Grounded Zero-Hallucination Extraction</p>
                         </div>
                      </div>
                  </div>
@@ -228,7 +282,7 @@
                      <iframe id="report-iframe" class="w-full h-full border-0 rounded-lg" title="Interactive Report: The Career of Sam Arora"></iframe>
                 </div>
             </section>
-            
+
             <!-- Chatbot Section -->
             <section id="chatbot" class="content-section">
                 <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md h-[80vh] flex flex-col">
@@ -236,16 +290,16 @@
                     <div id="chat-window" class="flex-grow overflow-y-auto p-4 space-y-4">
                         <div class="flex justify-start">
                             <div class="chat-bubble ai p-3 rounded-lg">
-                                Hello! I'm an AI assistant trained on Sam Arora's resume. Ask me anything about his experience, skills, or projects, or click a suggestion below.
+                                Hello! I'm an AI assistant trained on Dr. Sam Arora's resume. Ask me anything about his Azure AI Foundry experience, Copilot Studio projects, or technical expertise.
                             </div>
                         </div>
                     </div>
                     <div class="pt-2">
                         <p class="text-sm font-semibold text-gray-600 mb-2 px-4">Suggestions:</p>
                         <div id="predefined-questions" class="flex flex-wrap gap-2 px-4 mb-4">
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What Azure AI Foundry experience does he have?</button>
+                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Tell me about his Copilot Studio work</button>
                             <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">What are his key achievements?</button>
-                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Summarize his experience with AI.</button>
-                            <button class="predefined-question text-sm border border-gray-300 rounded-full px-3 py-1">Which major companies has he worked with?</button>
                         </div>
                     </div>
                     <div class="mt-2 border-t-2 border-gray-100 pt-4">
@@ -281,7 +335,7 @@
             downloadPdfBtn.addEventListener('click', () => {
                 const { jsPDF } = window.jspdf;
                 const resumeContent = document.getElementById('resume-content');
-                
+
                 html2canvas(resumeContent, { scale: 2 }).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
                     const pdf = new jsPDF({
@@ -309,7 +363,7 @@
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Interactive Report: The Career of Sam Arora</title>
+                    <title>Interactive Report: Dr. Sam Arora</title>
                     <script src="https://cdn.tailwindcss.com"><\/script>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>
                     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -317,19 +371,17 @@
                         body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #3B3C36; }
                         .chart-container { position: relative; width: 100%; max-width: 800px; margin: auto; height: 400px; max-height: 450px; }
                         .kpi-card { background-color: white; border-left: 5px solid #A0522D; }
-                        .timeline-item::before { content: ''; position: absolute; left: -30px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; background-color: white; border: 4px solid #A0522D; z-index: 1; }
                     <\/style>
                 </head>
                 <body class="antialiased">
                     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                         <header class="text-center mb-16"><h1 class="text-4xl md:text-5xl font-extrabold text-[#3B3C36] mb-3">Interactive Professional Report</h1><h2 class="text-2xl md:text-3xl font-bold text-[#A0522D]">Sam Arora</h2></header>
-                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Key Performance Indicators</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">£100k+</p><p class="mt-2 text-lg font-semibold">Annual Cloud Savings</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">40%</p><p class="mt-2 text-lg font-semibold">Faster Onboarding</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-5xl font-extrabold text-[#A0522D]">100%</p><p class="mt-2 text-lg font-semibold">Secret Elimination</p></div></div></section>
+                         <header class="text-center mb-16"><h1 class="text-4xl md:text-5xl font-extrabold text-[#3B3C36] mb-3">Interactive Professional Report</h1><h2 class="text-2xl md:text-3xl font-bold text-[#A0522D]">Dr. Sam Arora, D.Sc.</h2><p class="text-lg text-gray-600 mt-2">AI Enterprise Solution Architect</p></header>
+                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Key Performance Indicators</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-4xl font-extrabold text-[#A0522D]">47,637</p><p class="mt-2 text-lg font-semibold">Requests/Hour</p><p class="text-sm text-gray-500">AKS GPU Infrastructure</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-4xl font-extrabold text-[#A0522D]">93%</p><p class="mt-2 text-lg font-semibold">Cost Reduction</p><p class="text-sm text-gray-500">AI Foundry to AKS Pivot</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-4xl font-extrabold text-[#A0522D]">89.3%</p><p class="mt-2 text-lg font-semibold">Resolution Rate</p><p class="text-sm text-gray-500">Copilot Studio HR Platform</p></div><div class="kpi-card rounded-lg shadow-md p-6"><p class="text-4xl font-extrabold text-[#A0522D]">$35M+</p><p class="mt-2 text-lg font-semibold">Annual Value</p><p class="text-sm text-gray-500">Underwriting Automation</p></div></div></section>
                          <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-10">Technical Expertise Analysis</h3><div class="bg-white rounded-xl shadow-lg p-6 md:p-8"><div class="chart-container h-[500px] max-h-[600px] md:h-[600px] md:max-h-[700px]"><canvas id="expertiseChart"><\/canvas></div></div></section>
-                         <section class="mb-20"><h3 class="text-3xl font-bold text-center text-[#3B3C36] mb-12">Marquee Engagements</h3><div class="max-w-3xl mx-auto"><div class="relative pl-8 border-l-4 border-[#D2B48C]"><div class="space-y-12"><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">Apr 2023 – Present</p><h4 class="text-xl font-bold mt-1">Director & Principal Consultant</h4><div class="mt-4 space-y-2 text-sm pl-4 border-l-2 border-[#D2B48C]"><p><strong>Principal Architect |</strong> Legal & General</p><p><strong>Principal Architect |</strong> Euroclear & Pret</p></div></div></div><div class="timeline-item relative"><div class="bg-white p-6 rounded-xl shadow-md"><p class="text-sm font-semibold text-[#A0522D]">Aug 2022 – Apr 2023</p><h4 class="text-xl font-bold mt-1">Senior DevOps Engineer</h4><p class="font-semibold text-gray-700">London Stock Exchange</p></div></div></div></div></div></section>
                     </main>
                     <script>
                         document.addEventListener('DOMContentLoaded', function () {
-                            const expertiseData = { labels: ['Llama 3.x', 'Azure OpenAI', 'Terraform', 'Kubernetes', 'GitHub Actions', 'Policy-as-Code', 'Keyless Auth', 'Python'], datasets: [{ label: 'Proficiency', data: [95, 90, 98, 95, 99, 90, 98, 95], backgroundColor: ['#A0522D', '#B87333', '#C4A484', '#D2B48C', '#A0522D', '#B87333', '#C4A484', '#D2B48C'] }] };
+                            const expertiseData = { labels: ['Azure AI Foundry', 'Copilot Studio', 'AKS/KAITO', 'Terraform IaC', 'Service Bus/Event Grid', 'VNets/Networking', 'Python/FastAPI', 'GitHub Actions'], datasets: [{ label: 'Proficiency', data: [95, 92, 98, 96, 90, 94, 95, 99], backgroundColor: ['#A0522D', '#B87333', '#C4A484', '#D2B48C', '#A0522D', '#B87333', '#C4A484', '#D2B48C'] }] };
                             const expertiseCtx = document.getElementById('expertiseChart');
                             if(expertiseCtx) { new Chart(expertiseCtx, { type: 'bar', data: expertiseData, options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { display: false } } } } }); }
                         });
@@ -339,48 +391,83 @@
             `;
             iframe.srcdoc = reportHTML;
 
-            // --- Chatbot Logic ---
+            // --- Chatbot Logic with Secure Backend ---
             const chatWindow = document.getElementById('chat-window');
             const chatInput = document.getElementById('chat-input');
             const sendButton = document.getElementById('chat-send');
             const predefinedQuestionsContainer = document.getElementById('predefined-questions');
-            
+
+            const BACKEND_URL = 'https://sam-arora-chat-backend-198500939007.us-central1.run.app';
+
             const resumeContext = `
-                This is a professional profile for Sam Arora.
+                This is a professional profile for Dr. Sam Arora, D.Sc.
 
                 **Core Identity:**
-                - Title: Principal AI/ML & DevSecOps Architect
-                - Experience: Over 20 years
-                - Summary: A hands-on technology leader specializing in AI, DevSecOps, and cloud solutions. He bridges the gap between high-level strategy and technical execution.
+                - Title: AI Enterprise Solution Architect
+                - Specialization: Azure AI Foundry, Microsoft Copilot Studio, AKS Platform Engineering
+                - Education: D.Sc. in Artificial Intelligence, MSc IT Services Management
+                - Experience: Over 20 years as a hands-on technology leader
 
-                **Key Achievements (Quantifiable):**
-                - Saved over £100k annually by optimizing cloud infrastructure.
-                - Accelerated application onboarding by 40% with standardized platforms.
-                - Eliminated 100% of static secrets in CI/CD pipelines via keyless authentication.
+                **Azure AI Foundry Experience:**
+                - Deployed custom models (GPT-4, GPT-4o, Llama 3.x, Mistral, Qwen) via Azure AI Foundry
+                - Built Prompt Flow orchestration for document processing pipelines
+                - Architected intelligent routing: simple queries to Foundry, complex to AKS self-hosted models
+                - Hit cost ceiling at scale (5,000+ docs/hour) - pivoted to AKS/KAITO for 93% cost reduction
+                - Result: 47,637 requests/hour throughput on AKS GPU infrastructure (NC48ads_A100)
 
-                **Technical Expertise Breakdown:**
-                - AI/ML: Proficient with Large Language Models like Llama 3.x, and platforms like Azure OpenAI and GCP Vertex AI (Gemini). Skilled in fine-tuning, RAG (Retrieval-Augmented Generation), and building agentic workflows.
-                - Cloud & Infrastructure: Expert in Azure, GCP, and AWS. Manages infrastructure as code using Terraform and Ansible. Expert in Kubernetes (AKS, GKE).
-                - DevSecOps & CI/CD: Builds and secures pipelines using GitHub Actions, Jenkins, and GitLab CI. Uses Prisma Cloud for security and OPA (Open Policy Agent) for policy-as-code.
-                - Security & Compliance Frameworks: Deep knowledge of ISO27001, NIST, SOC2, and GDPR. Implements secure SDLC and keyless authentication using OIDC.
-                - Programming: Python, React, Node.js, Flask, PowerShell.
+                **Microsoft Copilot Studio Experience:**
+                - Built enterprise HR platform for global retail QSR (Pret A Manger) serving 10,000+ employees
+                - Designed 50+ conversation topics covering HR policies, benefits, leave management
+                - Built custom connectors via Logic Apps for ServiceNow ticket creation and Workday integration
+                - Implemented authentication via Azure AD/Entra ID with conditional access
+                - Deployed API Management layer for rate limiting and analytics
+                - Results: 89.3% ticket resolution without human intervention, 4.6/5 employee satisfaction
 
-                **Recent Professional Engagements (Post-2022):**
-                - Current Role: Director & Principal Consultant at Samokash Ltd (since April 2023).
-                - Direct Client Work (as Principal Architect/Strategist): Legal & General (UK & America), Euroclear, Pret, and Chase. This work involves AI strategy, cloud architecture, and DevSecOps leadership.
-                - Previous Role: Senior DevOps Engineer at London Stock Exchange (until April 2023).
+                **Quantified Achievements:**
+                - 47,637 requests/hour throughput on AKS/KAITO GPU infrastructure
+                - 93% cost reduction through AI Foundry to AKS pivot with model routing
+                - 360x processing speed improvement (3+ hours to 30 seconds per document)
+                - 89.3% HR resolution rate with Copilot Studio
+                - $35M+ annual value delivered through underwriting automation
+                - 97% hallucination detection accuracy with <2% false positive rate
+                - 94.8% decision accuracy vs 67% industry average
+                - 85% risk reduction through industry-first LLM security scanning
 
-                **Key Project Summaries:**
-                - For Insurance (Local AI Model): Developed an internal, air-gapped AI system using a fine-tuned Llama 3 model to analyze sensitive medical data for underwriting, improving accuracy.
-                - For Finance (AI Risk Guard): Built a safety system that acts as a firewall for LLM outputs to prevent hallucinations and bias.
-                - For Cloud Security (Keyless Auth): Deployed a secretless access solution for GCP using Workload Identity Federation, eliminating the need for static service account keys.
+                **Azure Technical Skills:**
+                - Azure AI & ML: Azure AI Foundry, Azure ML, Copilot Studio, Prompt Flow, AI Search, Cognitive Services
+                - Azure Compute: AKS (GPU NC48ads_A100), KAITO Operator, Container Apps, Function Apps
+                - Azure Networking: VNets, Private Endpoints, Application Gateway, Front Door, NSGs, Azure Firewall
+                - Azure Integration: Service Bus, Event Grid, Logic Apps, API Management, Event Hubs
+                - Azure Data: Blob Storage, Synapse Analytics, Data Factory, Azure SQL, Cosmos DB, Monitor
+                - Azure Security: Entra ID, Key Vault, Defender for Cloud, Azure Policy, RBAC, Managed Identities
 
-                **Simulated Private Repository Insights:**
-                - From private GitHub repo 'agentic-finance-framework': Contains code for a Python-based framework using LangChain to create financial analysis agents. The README highlights a modular design for swapping different LLMs and vector databases.
-                - From private Hugging Face Space 'medical-llama-finetune': Includes notes on a project fine-tuning a Llama model on a private medical dataset. Key learning was the importance of data decontamination to prevent memorization of sensitive information.
+                **Recent Client Engagements (Samokash Ltd, Apr 2023 - Present):**
+                - Fortune 500 US Insurer (Life Insurance): Azure AI Foundry, AKS/KAITO, Service Bus
+                - Major UK Insurer (General Insurance): AKS GPU, VNets, Private Endpoints, Event Grid
+                - Global Retail QSR - Pret A Manger (Food & Beverage): Copilot Studio, Logic Apps, API Management
+                - UK Government - Defra (Public Sector): Azure Landing Zone, Policy, Governance
+
+                **Previous Roles:**
+                - Senior DevOps Architect at London Stock Exchange (Aug 2022 - Apr 2023)
+                - Head of DevOps at EY Insurwave (Mar 2018 - Jun 2020)
+                - Earlier: Genesis Trading, WPP, Nationwide, Deutsche Bank, Bank of America, Markit Group, Microsoft India
+
+                **Patents & Publications:**
+                - Patent-Pending: Multi-Model AI Routing Architecture (2024) - 93% cost reduction
+                - Patent-Pending: Token-Grounded Zero-Hallucination Extraction (2024) - 100% traceability
+                - Industry First: Open-Source LLM Security Scanning Framework (2024)
+
+                **Key Differentiator:**
+                "I don't hand off designs to developers. I architect, build, deploy, and operate - end-to-end from whiteboard to production."
+
+                **Contact:**
+                - Email: sam.arora@samokash.com
+                - Phone: 07706070809
+                - LinkedIn: linkedin.com/in/sam-arora-2739b515
+                - GitHub: github.com/get2sammy
+                - Hugging Face: huggingface.co/get2sammy
             `;
-            
-            // --- Live API Call Implementation ---
+
             const sendMessage = async (message) => {
                 const userInput = message || chatInput.value.trim();
                 if (!userInput) return;
@@ -389,56 +476,39 @@
                 chatInput.value = '';
                 appendMessage('', 'thinking');
 
-                const prompt = `You are an AI assistant for Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, you MUST respond with "I can only answer questions based on Sam Arora's provided professional profile." Be professional and concise.\n\n== CONTEXT ==\n${resumeContext}\n\n== USER QUESTION ==\n${userInput}`;
-                
+                const prompt = `You are an AI assistant for Dr. Sam Arora. Your ONLY knowledge source is the text provided below. Do NOT use any external information or prior training. Answer the user's question based *exclusively* on the provided context. If the answer cannot be found in the text, respond with "I can only answer questions based on Dr. Sam Arora's provided professional profile." Be professional, concise, and highlight specific metrics and achievements when relevant.\n\n== CONTEXT ==\n${resumeContext}\n\n== USER QUESTION ==\n${userInput}`;
+
                 try {
-                    const responseText = await getAiResponse(prompt);
+                    const response = await fetch(BACKEND_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ prompt: prompt })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Backend error: ${response.status}`);
+                    }
+
+                    const data = await response.json();
                     document.querySelector('.thinking').parentElement.remove();
-                    appendMessage(responseText, 'ai');
+
+                    if (data.error) {
+                        appendMessage('Sorry, I encountered an error. Please try again.', 'ai');
+                    } else {
+                        appendMessage(data.text, 'ai');
+                    }
                 } catch (error) {
                     document.querySelector('.thinking').parentElement.remove();
-                    appendMessage('Sorry, I encountered an error. Please check the browser console for details.', 'ai');
-                    console.error('Error fetching AI response:', error);
+                    appendMessage('Sorry, I encountered an error connecting to the AI service. Please try again later.', 'ai');
+                    console.error('Chat error:', error);
                 }
-            };
-
-            const getAiResponse = async (prompt) => {
-                // IMPORTANT: In your GitHub Actions workflow, you must replace
-                // the '{{GEMINI_API_KEY}}' placeholder below with your actual secret.
-                // Example step in YAML:
-                // - name: Replace API Key
-                //   run: sed -i 's/{{GEMINI_API_KEY}}/${{ secrets.GEMINI_API_KEY }}/g' index.html
-                const apiKey = "{{GEMINI_API_KEY}}"; 
-
-                if (!apiKey || apiKey === "{{GEMINI_API_KEY}}") {
-                    throw new Error("API key placeholder not replaced. Please set up the GitHub Action secret.");
-                }
-
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                
-                const payload = { contents: [{ parts: [{ text: prompt }] }] };
-                const headers = { 'Content-Type': 'application/json' };
-
-                const response = await fetch(apiUrl, { method: 'POST', headers, body: JSON.stringify(payload) });
-                if (!response.ok) {
-                    const errorBody = await response.text();
-                    console.error("API Error Response:", errorBody);
-                    throw new Error(`API request failed with status ${response.status}`);
-                }
-                const result = await response.json();
-
-                if (result.candidates && result.candidates[0]?.content?.parts[0]?.text) {
-                    return result.candidates[0].content.parts[0].text;
-                }
-                
-                throw new Error("Invalid response structure from API.");
             };
 
             const appendMessage = (text, type) => {
                 const messageWrapper = document.createElement('div');
                 const messageBubble = document.createElement('div');
                 messageWrapper.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'}`;
-                
+
                 if (type === 'thinking') {
                     messageBubble.className = 'chat-bubble thinking p-4 rounded-lg flex items-center';
                     messageBubble.innerHTML = '<div class="dot-flashing"></div>';
@@ -446,7 +516,7 @@
                     messageBubble.className = `chat-bubble ${type} p-3 rounded-lg`;
                     messageBubble.textContent = text;
                 }
-                
+
                 messageWrapper.appendChild(messageBubble);
                 chatWindow.appendChild(messageWrapper);
                 chatWindow.scrollTop = chatWindow.scrollHeight;
