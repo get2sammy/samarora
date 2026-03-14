@@ -189,7 +189,7 @@
             <div class="text-center lg:text-left">
                 <h1 class="text-3xl font-extrabold text-[#3B3C36]">Dr. Sam Arora, D.Sc.</h1>
                 <p class="text-md text-[#A0522D] font-semibold mt-1">AI Enterprise Solution Architect</p>
-                <p class="text-sm text-gray-600 mt-1">Azure AI Foundry | Copilot Studio | AKS</p>
+                <p class="text-sm text-gray-600 mt-1">Azure AI Foundry | AWS EKS | Kubernetes | Terraform</p>
             </div>
             <nav class="mt-12">
                 <ul class="space-y-4">
@@ -255,6 +255,18 @@
                                 <p class="text-2xl font-extrabold text-[#A0522D]">$35M+</p>
                                 <p class="text-sm text-gray-600">annual value</p>
                             </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">360x</p>
+                                <p class="text-sm text-gray-600">processing speed</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">60%</p>
+                                <p class="text-sm text-gray-600">faster deployments</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <p class="text-2xl font-extrabold text-[#A0522D]">40%</p>
+                                <p class="text-sm text-gray-600">fewer incidents</p>
+                            </div>
                         </div>
                     </div>
 
@@ -272,7 +284,9 @@
                                     <tr><td><strong>Azure Integration</strong></td><td>Service Bus, Event Grid, Logic Apps, API Management, Event Hubs, Azure Functions</td></tr>
                                     <tr><td><strong>Azure Data</strong></td><td>Blob Storage, Synapse Analytics, Data Factory, Azure SQL, Cosmos DB, Monitor, Log Analytics</td></tr>
                                     <tr><td><strong>Security & Governance</strong></td><td>Entra ID, Key Vault, Defender for Cloud, Azure Policy, RBAC, Managed Identities</td></tr>
-                                    <tr><td><strong>Other Clouds & Tools</strong></td><td>GCP (Vertex AI, Cloud Run), Terraform IaC, GitHub Actions, Llama 3.x, Mistral, Qwen</td></tr>
+                                    <tr><td><strong>AWS</strong></td><td>EC2, EKS, Lambda, S3, RDS, VPC, Transit Gateway, Direct Connect, Route53, ALB/NLB, IAM, KMS, CloudWatch, GuardDuty, Security Hub</td></tr>
+                                    <tr><td><strong>GCP & Multi-Cloud</strong></td><td>GKE, Cloud Run, Vertex AI, Cloud SQL, VPC, IAM — Terraform IaC, GitHub Actions, ArgoCD, GitOps</td></tr>
+                                    <tr><td><strong>AI Models & Scripting</strong></td><td>Llama 3.x, Mistral, Qwen, Python, Go, Bash, YAML/JSON</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -289,10 +303,11 @@
                                     <table class="w-full border-collapse resume-table text-sm">
                                         <thead><tr><th>Client</th><th>Industry</th><th>Azure Technologies</th></tr></thead>
                                         <tbody>
-                                            <tr><td>Fortune 500 US Insurer</td><td>Life Insurance</td><td>Azure AI Foundry, AKS/KAITO, Service Bus</td></tr>
+                                            <tr><td>Fortune 500 US Insurer</td><td>Life Insurance</td><td>AWS (EKS, VPC), Azure AI Foundry, AKS/KAITO, Terraform</td></tr>
                                             <tr><td>Major UK Insurer</td><td>General Insurance</td><td>AKS GPU, VNets, Private Endpoints, Event Grid</td></tr>
                                             <tr><td>Global QSR Enterprise</td><td>Food & Beverage</td><td>Copilot Studio, Logic Apps, API Management</td></tr>
                                             <tr><td>UK Government Department</td><td>Public Sector</td><td>Azure Landing Zone, Policy, Governance</td></tr>
+                                            <tr><td>Global Investment Bank</td><td>Financial Services</td><td>AWS EKS, Multi-account networking, Transit Gateway</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -342,6 +357,9 @@
                         <button class="diagram-tab active" data-diagram="azure-ai">Azure AI Platform</button>
                         <button class="diagram-tab" data-diagram="copilot-studio">Copilot Studio</button>
                         <button class="diagram-tab" data-diagram="multi-agent">Multi-Agent Framework</button>
+                        <button class="diagram-tab" data-diagram="k8s-platform">Kubernetes Platform</button>
+                        <button class="diagram-tab" data-diagram="networking">Multi-Cloud Networking</button>
+                        <button class="diagram-tab" data-diagram="cicd">CI/CD Pipeline</button>
                         <button class="diagram-tab" data-diagram="delivery">End-to-End Delivery</button>
                     </div>
 
@@ -457,6 +475,127 @@
                                 <li><strong>Performance:</strong> 18 seconds for complete 4-agent analysis, 100% success rate, 75% high confidence</li>
                             </ul>
                             <p class="sensitive-note">Note: Architecture generalized from insurance document processing. Domain-specific agent logic is proprietary.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kubernetes Platform Diagram -->
+                    <div id="diagram-k8s-platform" class="diagram-content">
+                        <div class="ascii-diagram">
+┌────────────────────────────────────────────────────────────────────┐
+│                 KUBERNETES PLATFORM ARCHITECTURE                    │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌────────────────┐  │
+│  │   DNS/CDN       │    │  Load Balancer  │    │  K8s Cluster   │  │
+│  │  (Route53/      │───▶│  (ALB/AppGW/    │───▶│  (EKS/AKS/GKE) │  │
+│  │   Cloud DNS)    │    │   Cloud LB)     │    │                │  │
+│  └─────────────────┘    └─────────────────┘    └────────────────┘  │
+│                                                        │           │
+│                                                        ▼           │
+│  ┌─────────────────────────────────────────────────────────────┐  │
+│  │                      NODE GROUPS                             │  │
+│  │  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐ │  │
+│  │  │ App Pods  │  │ App Pods  │  │ GPU Pods  │  │ System    │ │  │
+│  │  │ (HPA)     │  │ (HPA)     │  │ (AI/ML)   │  │ Pods      │ │  │
+│  │  └───────────┘  └───────────┘  └───────────┘  └───────────┘ │  │
+│  └─────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+├────────────────────────────────────────────────────────────────────┤
+│  STORAGE: S3/Blob/GCS │ EBS/Managed Disks │ EFS/Azure Files       │
+│  DATA: RDS/Azure SQL/Cloud SQL │ ElastiCache/Redis │ DynamoDB     │
+│  MONITORING: CloudWatch │ Azure Monitor │ Cloud Monitoring        │
+│  SECURITY: IAM │ KMS/Key Vault │ Secrets Manager │ RBAC           │
+└────────────────────────────────────────────────────────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Multi-Cloud Kubernetes Platform</h4>
+                            <p class="text-gray-700 mb-2">Production Kubernetes architecture across AWS EKS, Azure AKS, and GCP GKE — designed for high availability, auto-scaling, and GPU workloads.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Cluster Design:</strong> Multi-cluster architecture with dedicated GPU node pools for AI/ML (NC48ads_A100, p3.8xlarge)</li>
+                                <li><strong>Scaling:</strong> HPA/VPA for pod-level, Cluster Autoscaler for node-level — KAITO operator for AI model serving</li>
+                                <li><strong>Result:</strong> 47,637 requests/hour production throughput, 60% faster deployments via GitOps</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Architecture generalized from Fortune 500 multi-cloud implementations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Cloud Networking Diagram -->
+                    <div id="diagram-networking" class="diagram-content">
+                        <div class="ascii-diagram">
+┌────────────────────────────────────────────────────────────────────┐
+│              ENTERPRISE NETWORKING ARCHITECTURE                     │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌─────────────────────────────────────────────────────────────┐  │
+│  │     TRANSIT GATEWAY / HUB VNET / SHARED VPC (Hub Layer)     │  │
+│  └───────────────────────────┬─────────────────────────────────┘  │
+│              ┌───────────────┼───────────────┐                     │
+│              ▼               ▼               ▼                     │
+│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐          │
+│  │  Production   │  │  Non-Prod     │  │  Shared       │          │
+│  │  Environment  │  │  Environment  │  │  Services     │          │
+│  └───────────────┘  └───────────────┘  └───────────────┘          │
+│        │                    │                   │                  │
+│        ▼                    ▼                   ▼                  │
+│  ┌──────────┐        ┌──────────┐        ┌──────────────┐         │
+│  │ Private  │        │ Private  │        │ Connectivity │         │
+│  │ Subnets  │        │ Subnets  │        │ (Direct      │         │
+│  │ (K8s)    │        │ (Dev/QA) │        │  Connect/ER) │         │
+│  └──────────┘        └──────────┘        └──────────────┘         │
+│                                                                     │
+├────────────────────────────────────────────────────────────────────┤
+│  SECURITY: Security Groups/NSGs │ NACLs │ Flow Logs │ WAF        │
+│  DNS: Private DNS Zones │ Split-horizon DNS │ Route53/Azure DNS   │
+│  CONNECTIVITY: Direct Connect │ ExpressRoute │ Cloud Interconnect │
+└────────────────────────────────────────────────────────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Enterprise Multi-Cloud Networking</h4>
+                            <p class="text-gray-700 mb-2">Hub-spoke network topology across AWS, Azure, and GCP with Transit Gateway / Hub VNet for centralized connectivity, security, and routing control.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>AWS:</strong> Transit Gateway multi-account hub, Direct Connect for on-premise, Security Groups + NACLs</li>
+                                <li><strong>Azure:</strong> Hub VNet with Azure Firewall, Private Endpoints, ExpressRoute, NSGs, VPN Gateway</li>
+                                <li><strong>Security:</strong> Zero-trust networking, private subnets only, WAF, split-horizon DNS</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Architecture generalized from financial services and government implementations.</p>
+                        </div>
+                    </div>
+
+                    <!-- CI/CD Pipeline Diagram -->
+                    <div id="diagram-cicd" class="diagram-content">
+                        <div class="ascii-diagram">
+┌─────────────────────────────────────────────────────────────────────┐
+│                    CI/CD PIPELINE ARCHITECTURE                       │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────────┐  │
+│  │  GitHub  │───▶│  GitHub  │───▶│  Build & │───▶│  Deploy to   │  │
+│  │  Repo    │    │  Actions │    │  Test    │    │  K8s         │  │
+│  └──────────┘    └──────────┘    └──────────┘    └──────────────┘  │
+│                       │               │                │            │
+│                       ▼               ▼                ▼            │
+│               ┌──────────────┐ ┌──────────┐   ┌─────────────────┐  │
+│               │ SAST/DAST    │ │ Unit +   │   │  ArgoCD GitOps  │  │
+│               │ SonarQube    │ │ Integr.  │   │  Blue/Green     │  │
+│               │ Trivy Scan   │ │ Tests    │   │  Canary Deploy  │  │
+│               │ Snyk         │ │ Coverage │   │                 │  │
+│               └──────────────┘ └──────────┘   └─────────────────┘  │
+│                                                                      │
+├─────────────────────────────────────────────────────────────────────┤
+│  IaC: Terraform modules │ CloudFormation │ Pulumi                   │
+│  SECRETS: Key Vault │ Secrets Manager │ Workload Identity (keyless) │
+│  MONITORING: Deployment metrics │ Rollback triggers │ Alerting      │
+└─────────────────────────────────────────────────────────────────────┘
+                        </div>
+                        <div class="diagram-description">
+                            <h4 class="font-bold text-gray-800 mb-2">Secure CI/CD Pipeline Architecture</h4>
+                            <p class="text-gray-700 mb-2">Shift-left security embedded in every stage of the pipeline — SAST/DAST, vulnerability scanning, and keyless authentication throughout.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li><strong>Security gates:</strong> SonarQube SAST, Trivy container scanning, Snyk dependency checks — mandatory before deploy</li>
+                                <li><strong>GitOps:</strong> ArgoCD with blue/green and canary deployments, automated rollback on failure</li>
+                                <li><strong>Result:</strong> 60% faster deployments, 40% fewer production incidents with shift-left security</li>
+                            </ul>
+                            <p class="sensitive-note">Note: Pipeline architecture from multi-cloud enterprise implementations.</p>
                         </div>
                     </div>
 
@@ -742,20 +881,28 @@ Distributed agent architecture for document intelligence. Orchestrator coordinat
                 - $35M+ annual value delivered through underwriting automation
                 - 97% hallucination detection accuracy with <2% false positive rate
                 - 94.8% decision accuracy vs 67% industry average
+                - 60% faster deployments via GitOps and automated CI/CD
+                - 40% fewer production incidents through shift-left security in pipelines
 
-                **Azure Technical Skills:**
+                **Multi-Cloud Technical Skills:**
                 - Azure AI & ML: Azure AI Foundry, Azure ML, Copilot Studio, Prompt Flow, AI Search, Cognitive Services
                 - Azure Compute: AKS (GPU NC48ads_A100), KAITO Operator, Container Apps, Function Apps
                 - Azure Networking: VNets, Private Endpoints, Application Gateway, Front Door, NSGs, Azure Firewall
                 - Azure Integration: Service Bus, Event Grid, Logic Apps, API Management, Event Hubs
                 - Azure Data: Blob Storage, Synapse Analytics, Data Factory, Azure SQL, Cosmos DB, Monitor
                 - Azure Security: Entra ID, Key Vault, Defender for Cloud, Azure Policy, RBAC, Managed Identities
+                - AWS: EC2, EKS, Lambda, S3, RDS, VPC, Transit Gateway, Direct Connect, Route53, ALB/NLB, IAM, KMS, CloudWatch, GuardDuty, Security Hub
+                - GCP: GKE, Cloud Run, Vertex AI, Cloud SQL, VPC, IAM, Cloud Build
+                - Kubernetes: EKS/AKS/GKE cluster architecture, Helm, Kustomize, ArgoCD, HPA/VPA, Cluster Autoscaler, Service Mesh
+                - IaC & CI/CD: Terraform (expert), CloudFormation, GitHub Actions, ArgoCD, GitOps, Jenkins
+                - Programming: Python, Go, Bash, YAML/JSON
 
                 **Recent Client Engagements (Samokash Ltd, Apr 2023 - Present):**
-                - Fortune 500 US Insurer (Life Insurance): Azure AI Foundry, AKS/KAITO, Service Bus
+                - Fortune 500 US Insurer (Life Insurance): AWS (EKS, VPC), Azure AI Foundry, AKS/KAITO, Terraform
                 - Major UK Insurer (General Insurance): AKS GPU, VNets, Private Endpoints, Event Grid
                 - Global QSR Enterprise (Food & Beverage): Copilot Studio, Logic Apps, API Management
                 - UK Government Department (Public Sector): Azure Landing Zone, Policy, Governance
+                - Global Investment Bank (Financial Services): AWS EKS, multi-account networking, Transit Gateway, CI/CD
 
                 **Previous Roles:**
                 - Senior DevOps Architect at London Stock Exchange (Aug 2022 - Apr 2023)
@@ -806,7 +953,8 @@ ${userInput}`;
                     }
 
                     const data = await response.json();
-                    document.querySelector('.thinking').parentElement.remove();
+                    const thinkingEl = document.querySelector('.thinking');
+                    if (thinkingEl) thinkingEl.parentElement.remove();
 
                     if (data.error) {
                         appendMessage('Sorry, I encountered an error. Please try again.', 'ai');
@@ -814,7 +962,8 @@ ${userInput}`;
                         appendMessage(data.text, 'ai');
                     }
                 } catch (error) {
-                    document.querySelector('.thinking').parentElement.remove();
+                    const thinkingEl = document.querySelector('.thinking');
+                    if (thinkingEl) thinkingEl.parentElement.remove();
                     appendMessage('Sorry, I encountered an error connecting to the AI service. Please try again later.', 'ai');
                     console.error('Chat error:', error);
                 }
